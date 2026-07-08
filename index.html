@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJFF44CH76"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LJFF44CH76');function trackPage(s){try{gtag('event','section_view',{'section_name':s});}catch(e){}}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExamPath 2027 — India Exam & Career Agent</title>
+<style>
+:root{
+  --navy:#0F1B35;--navy2:#1A2D52;--navy3:#243660;
+  --amber:#F5A623;--amberlt:#FFF3D6;--amberdk:#C47F00;
+  --white:#FFFFFF;--offwhite:#F7F9FC;--slate:#8892A4;--slatelt:#C5CEDF;
+  --text:#1A2035;--textsoft:#4A5568;
+  --red:#E53E3E;--redlt:#FFF5F5;--orange:#DD6B20;--orangelt:#FFFAF0;
+  --green:#276749;--greenlt:#F0FFF4;--purple:#553C9A;--purplelt:#FAF5FF;
+  --teal:#1A7F74;--teallt:#E6FFFA;--pink:#97266D;--pinklt:#FFF5F7;
+  --r:10px;--sh:0 2px 12px rgba(15,27,53,.1);--shlg:0 8px 32px rgba(15,27,53,.16);
+  --font:-apple-system,'Segoe UI',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:15px}body{font-family:var(--font);background:var(--offwhite);color:var(--text);min-height:100vh;overflow-x:hidden}
+button{cursor:pointer;font-family:inherit;border:none;background:none}input,select{font-family:inherit}a{text-decoration:none;color:inherit}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+/* TOP BAR */
+.topbar{grid-column:1/-1;background:var(--navy);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.tb-brand{display:flex;align-items:center;gap:10px}
+.tb-logo{width:32px;height:32px;background:var(--amber);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;color:var(--navy);flex-shrink:0}
+.tb-title{font-size:1.05rem;font-weight:700;color:#fff;letter-spacing:-.3px}
+.tb-sub{font-size:.72rem;color:var(--slatelt)}
+.tb-date{font-size:.78rem;color:var(--amber);font-weight:600;background:rgba(245,166,35,.12);padding:4px 12px;border-radius:20px;border:1px solid rgba(245,166,35,.25)}
+/* SIDEBAR */
+.sidebar{background:var(--navy);padding:16px 0 80px;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none}
+.sidebar::-webkit-scrollbar{display:none}
+.sb-lbl{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);padding:14px 20px 5px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;color:var(--slatelt);font-size:.85rem;font-weight:500;width:100%;text-align:left;transition:all .15s;border-left:3px solid transparent;cursor:pointer}
+.nav-item:hover{background:rgba(255,255,255,.05);color:#fff}
+.nav-item.active{background:rgba(245,166,35,.12);color:var(--amber);border-left-color:var(--amber);font-weight:600}
+.nav-item .ic{font-size:1.1rem;width:22px;text-align:center;flex-shrink:0}
+.sb-div{height:1px;background:rgba(255,255,255,.07);margin:6px 20px}
+.urg-box{margin:10px 14px;background:rgba(229,62,62,.12);border:1px solid rgba(229,62,62,.25);border-radius:var(--r);padding:10px 14px}
+.urg-lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:#FC8181;margin-bottom:3px}
+.urg-num{font-size:1.6rem;font-weight:800;color:#fff;line-height:1}
+.urg-sub{font-size:.72rem;color:var(--slatelt);margin-top:2px}
+/* MAIN */
+.main{padding:24px;min-height:calc(100vh - 56px);overflow-y:auto}
+.ph{margin-bottom:20px}
+.ph-eye{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--amberdk);margin-bottom:4px}
+.ph-title{font-size:1.5rem;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+.ph-sub{font-size:.82rem;color:var(--textsoft);margin-top:4px}
+/* PAGES */
+.page{display:none}.page.active{display:block}
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:16px;text-align:center}
+.sn{font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px}
+.sn.red{color:var(--red)}.sn.amber{color:var(--amberdk)}.sn.green{color:var(--green)}
+.sl{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--slate)}
+/* FILTER BAR */
+.fbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.chip{padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600;border:1.5px solid var(--slatelt);color:var(--textsoft);background:#fff;transition:all .15s;cursor:pointer}
+.chip:hover{border-color:var(--navy2);color:var(--navy)}
+.chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.chip.tnat.active{background:#1565C0;border-color:#1565C0}
+.chip.tstate.active{background:#1A7F74;border-color:#1A7F74}
+.chip.tprivate.active{background:#7B5E00;border-color:#7B5E00}
+.chip.tnewgen.active{background:#1565C0;border-color:#1565C0}
+.chip.tresearch.active{background:#553C9A;border-color:#553C9A}
+.chip.tdesign.active{background:#DD6B20;border-color:#DD6B20}
+.chip.tliberal.active{background:#97266D;border-color:#97266D}
+.chip.tmgmt.active{background:#5D4037;border-color:#5D4037}
+.chip.thospitality.active{background:#4E342E;border-color:#4E342E}
+.chip.tsports.active{background:#2E7D32;border-color:#2E7D32}
+.chip.tintl.active{background:#6A1B9A;border-color:#6A1B9A}
+.chip.tdefence.active{background:#0D47A1;border-color:#0D47A1}
+.chip.tother.active{background:#546E7A;border-color:#546E7A}
+.srchwrap{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--slatelt);border-radius:20px;padding:6px 14px;min-width:180px;max-width:280px;flex:1}
+.srchwrap:focus-within{border-color:var(--navy)}
+.srchwrap input{border:none;outline:none;flex:1;font-size:.82rem;color:var(--text);background:transparent}
+/* CARDS */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.ecard{background:#fff;border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:transform .15s,box-shadow .15s;border:1px solid rgba(0,0,0,.04);display:flex;flex-direction:column;animation:fu .25s ease}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ecard:hover{transform:translateY(-2px);box-shadow:var(--shlg)}
+.ctbar{height:4px}
+.cbody{padding:16px 16px 12px;flex:1}
+.ctop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}
+.cname{font-size:.92rem;font-weight:700;color:var(--navy);line-height:1.3;flex:1}
+.btag{display:inline-block;font-size:.6rem;font-weight:700;background:var(--green);color:#fff;padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle;text-transform:uppercase;letter-spacing:.5px}
+/* URGENCY RING */
+.uring{flex-shrink:0;position:relative;width:44px;height:44px}
+.uring svg{position:absolute;top:0;left:0;transform:rotate(-90deg)}
+.rbg{fill:none;stroke:var(--slatelt);stroke-width:3}
+.rfill{fill:none;stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset .8s ease}
+.rcenter{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.rdays{font-size:.75rem;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+.rlbl{font-size:.5rem;font-weight:600;text-transform:uppercase;letter-spacing:.3px;color:var(--slate)}
+/* CARD META */
+.cmeta{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.mrow{display:flex;align-items:flex-start;gap:7px;font-size:.78rem}
+.mic{font-size:.85rem;flex-shrink:0;margin-top:1px}
+.mlbl{font-weight:600;color:var(--textsoft);min-width:68px;flex-shrink:0;font-size:.72rem;text-transform:uppercase;letter-spacing:.3px;padding-top:1px}
+.mval{color:var(--text);flex:1;line-height:1.4}
+.cout{font-size:.74rem;color:var(--textsoft);line-height:1.4;background:var(--offwhite);border-radius:6px;padding:6px 9px;margin-bottom:10px;border-left:3px solid var(--slatelt)}
+.cfoot{padding:10px 16px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--offwhite);background:var(--offwhite)}
+.pbadge{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:12px;white-space:nowrap}
+.pCRITICAL{background:var(--redlt);color:var(--red);border:1px solid #FED7D7}
+.pHIGH{background:var(--orangelt);color:var(--orange);border:1px solid #FEEBC8}
+.pMEDIUM{background:var(--greenlt);color:var(--green);border:1px solid #C6F6D5}
+.pOPTIONAL{background:#EDF2F7;color:var(--slate);border:1px solid #E2E8F0}
+.pFUTURE{background:#EEF2FF;color:#4338CA;border:1px solid #C7D2FE}
+.cacts{display:flex;gap:6px;align-items:center}
+.stsel{font-size:.72rem;padding:4px 8px;border-radius:6px;border:1.5px solid #C5CEDF;background:#fff;color:#4A5568;cursor:pointer;font-family:inherit}
+.lbtn{font-size:.72rem;font-weight:600;color:var(--navy2);padding:4px 9px;border-radius:6px;border:1.5px solid #C5CEDF;background:#fff;transition:all .15s;text-decoration:none;display:inline-block}
+.lbtn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+/* CALENDAR */
+.calmo{background:#fff;border-radius:var(--r);box-shadow:var(--sh);margin-bottom:14px;overflow:hidden}
+.calhdr{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;cursor:pointer;user-select:none}
+.calhdr:hover{background:var(--offwhite)}
+.calmn{font-size:1rem;font-weight:700;color:var(--navy)}
+.calmn span{font-size:.75rem;font-weight:500;color:var(--slate);margin-left:8px}
+.caltgl{color:var(--slate);font-size:1rem;transition:transform .2s}
+.calmo.open .caltgl{transform:rotate(180deg)}
+.calbody{display:none;padding:0 14px 14px}
+.calmo.open .calbody{display:block}
+.cev{display:flex;align-items:flex-start;gap:12px;padding:9px 11px;border-radius:8px;margin-bottom:7px;border-left:4px solid transparent;font-size:.82rem}
+.evcritical{background:var(--redlt);border-left-color:var(--red)}
+.evhigh{background:var(--orangelt);border-left-color:var(--orange)}
+.evmedium{background:var(--greenlt);border-left-color:var(--green)}
+.evexam{background:var(--purplelt);border-left-color:var(--purple)}
+.evintl{background:var(--teallt);border-left-color:var(--teal)}
+.evdefence{background:#EFF6FF;border-left-color:#3B82F6}
+.evic{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.evb{flex:1}
+.evname{font-weight:700;color:var(--navy);margin-bottom:2px}
+.evkind{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;opacity:.7}
+.evnote{color:var(--textsoft);margin-top:3px;font-size:.78rem}
+.evdate{font-size:.72rem;font-weight:700;color:var(--textsoft);white-space:nowrap;text-align:right;flex-shrink:0}
+/* COMPASS */
+.cwrap{max-width:680px}
+.cprog{display:flex;gap:6px;margin-bottom:24px}
+.cps{flex:1;height:4px;background:var(--slatelt);border-radius:4px;transition:background .3s}
+.cps.done{background:var(--amber)}.cps.active{background:var(--navy)}
+.compcard{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:28px}
+.qnum{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--amberdk);margin-bottom:6px}
+.qtxt{font-size:1.15rem;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:20px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:var(--r);border:2px solid var(--slatelt);cursor:pointer;transition:all .15s;text-align:left;font-size:.88rem;font-weight:500;color:var(--text);background:#fff;width:100%}
+.opt:hover{border-color:var(--navy);background:var(--offwhite)}
+.opt.sel{border-color:var(--amber);background:var(--amberlt)}
+.oic{font-size:1.3rem;flex-shrink:0}
+.olbl{font-weight:700;margin-bottom:2px}
+.osub{font-size:.78rem;color:var(--textsoft);font-weight:400}
+.cnav{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+.btnp{background:var(--navy);color:#fff;padding:10px 24px;border-radius:8px;font-size:.88rem;font-weight:700;transition:background .15s,transform .1s;border:none;cursor:pointer}
+.btnp:hover{background:var(--navy2);transform:translateY(-1px)}
+.btnp:disabled{background:var(--slatelt);cursor:not-allowed;transform:none}
+.btns{color:var(--textsoft);padding:10px 16px;border-radius:8px;font-size:.85rem;font-weight:600;border:1.5px solid var(--slatelt);background:#fff;transition:all .15s;cursor:pointer}
+.btns:hover{border-color:var(--navy);color:var(--navy)}
+.rhero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy3) 100%);border-radius:var(--r);padding:28px;margin-bottom:18px;color:#fff}
+.rheye{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);margin-bottom:8px}
+.rhcar{font-size:1.6rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+.rhsub{font-size:.85rem;color:var(--slatelt);line-height:1.5}
+.rsec{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:20px;margin-bottom:14px}
+.rstit{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--amberdk);margin-bottom:12px}
+.epill{display:inline-flex;align-items:center;background:var(--navy);color:#fff;padding:6px 12px;border-radius:20px;font-size:.78rem;font-weight:600;margin:4px;cursor:pointer;transition:background .15s;border:none}
+.epill:hover{background:var(--navy2)}
+/* TRACKER */
+.ttable{background:#fff;border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+.trow{display:grid;grid-template-columns:1fr 120px 130px 120px;gap:10px;padding:11px 16px;border-bottom:1px solid var(--offwhite);align-items:center;font-size:.82rem}
+.trow.hdr{background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.trow:last-child{border-bottom:none}
+.tname{font-weight:600;color:var(--navy)}
+.tdate{color:var(--textsoft);font-size:.78rem}
+/* WHY */
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.wcard{background:#fff;border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:transform .15s,box-shadow .15s}
+.wcard:hover{transform:translateY(-2px);box-shadow:var(--shlg)}
+.wchdr{padding:16px;color:#fff;cursor:pointer}
+.wctier{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:.8;margin-bottom:4px}
+.wcname{font-size:1rem;font-weight:800;letter-spacing:-.3px}
+.wctag{font-size:.78rem;opacity:.85;margin-top:4px;line-height:1.4}
+.wcbody{padding:16px;display:none}
+.wcard.open .wcbody{display:block}
+.wr{display:flex;gap:10px;margin-bottom:10px;font-size:.82rem}
+.wrl{font-weight:700;color:var(--navy);min-width:52px;flex-shrink:0;font-size:.72rem;text-transform:uppercase;letter-spacing:.3px;padding-top:2px}
+.wrv{color:var(--textsoft);line-height:1.5;flex:1}
+.sbarw{background:var(--offwhite);border-radius:6px;height:6px;margin:4px 0;overflow:hidden}
+.sbar{height:100%;border-radius:6px;background:linear-gradient(90deg,#1A7F74,#F5A623)}
+.impst{color:var(--amber);font-size:.9rem}
+/* ABOUT */
+.asec{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:22px;margin-bottom:14px}
+.asec h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--offwhite)}
+.asec p,.asec li{font-size:.85rem;color:var(--textsoft);line-height:1.7;margin-bottom:6px}
+.asec ul{padding-left:18px}
+/* MOBILE */
+.mobnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:6px 0 env(safe-area-inset-bottom,6px);z-index:200}
+.mobits{display:flex;justify-content:space-around}
+.mobit{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 12px;color:var(--slatelt);font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:color .15s;border:none;background:none}
+.mobic{font-size:1.3rem}
+.mobit.active{color:var(--amber)}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 20px;border-radius:20px;font-size:.82rem;font-weight:600;box-shadow:var(--shlg);opacity:0;transition:all .3s;z-index:300;white-space:nowrap;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.empty{text-align:center;padding:60px 24px;color:var(--slate)}
+.empty .ei{font-size:3rem;margin-bottom:12px}
+.empty .et{font-size:.9rem;font-weight:600}
+@media(max-width:768px){
+  .app{grid-template-columns:1fr}
+  .sidebar{display:none}.mobnav{display:block}
+  .main{padding:16px 12px 88px}
+  .topbar{padding:0 16px}
+  .tb-sub{display:none}
+  .cgrid{grid-template-columns:1fr}
+  .trow{grid-template-columns:1fr 1fr}
+  .trow.hdr .tdate,.trow .tdate:nth-child(3){display:none}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .wgrid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="tb-brand">
+    <div class="tb-logo">EP</div>
+    <div><div class="tb-title">ExamPath 2027</div><div class="tb-sub">India Exam &amp; Career Agent &middot; PCM &middot; Grade 12</div></div>
+  </div>
+  <div class="tb-date" id="live-date">Loading&hellip;</div>
+</header>
+<nav class="sidebar">
+  <div class="urg-box">
+    <div class="urg-lbl">&#x1F534; Urgent</div>
+    <div class="urg-num" id="urg-count">&mdash;</div>
+    <div class="urg-sub">closing within 60 days</div>
+  </div>
+  <div class="sb-div"></div>
+  <div class="sb-lbl">Navigate</div>
+  <button class="nav-item active" onclick="showPage('exams')" id="nav-exams"><span class="ic">&#x1F4CB;</span>All Exams</button>
+  <button class="nav-item" onclick="showPage('cal')" id="nav-cal"><span class="ic">&#x1F4C5;</span>Timeline</button>
+  <button class="nav-item" onclick="showPage('compass')" id="nav-compass"><span class="ic">&#x1F9ED;</span>Career Compass</button>
+  <button class="nav-item" onclick="showPage('tracker')" id="nav-tracker"><span class="ic">&#x2705;</span>My Progress</button>
+  <div class="sb-div"></div>
+  <div class="sb-lbl">Insights</div>
+  <button class="nav-item" onclick="showPage('why')" id="nav-why"><span class="ic">&#x1F4A1;</span>Why Each Career</button>
+  <button class="nav-item" onclick="showPage('about')" id="nav-about"><span class="ic">&#x2139;&#xFE0F;</span>How to Use</button>
+</nav>
+<main class="main">
+
+<div class="page active" id="page-exams">
+  <div class="ph">
+    <div class="ph-eye">89 Exams &amp; Applications &middot; 10 Categories &middot; Engineering &middot; Medical &middot; Law &middot; Commerce &middot; Design &middot; Media &middot; Defence &middot; Hospitality &middot; Sports &middot; International</div>
+    <div class="ph-title">All Exams &amp; Colleges</div>
+    <div class="ph-sub">Filter by track &middot; search by name &middot; click &#x1F517; to open official site &middot; mark your status &middot; progress auto-saves</div>
+  </div>
+  <div class="stats-row" id="exams-stats"></div>
+  <div class="fbar" id="fbar"></div>
+  <div class="cgrid" id="cgrid"></div>
+  <div class="empty" id="empty-st" style="display:none"><div class="ei">&#x1F50D;</div><div class="et">No exams match. Try clearing a filter.</div></div>
+</div>
+
+<div class="page" id="page-cal">
+  <div class="ph">
+    <div class="ph-eye">Jul 2026 &rarr; Sep 2027</div>
+    <div class="ph-title">Timeline &amp; Deadlines</div>
+    <div class="ph-sub">Every registration deadline and exam date month by month. Click a month to expand.</div>
+  </div>
+  <div id="cal-wrap"></div>
+</div>
+
+<div class="page" id="page-compass">
+  <div class="ph">
+    <div class="ph-eye">5 Questions &middot; 2 Minutes &middot; Personalised Result</div>
+    <div class="ph-title">Career Compass</div>
+    <div class="ph-sub">Answer honestly &mdash; the right path will emerge.</div>
+  </div>
+  <div class="cwrap" id="compass-wrap"></div>
+</div>
+
+<div class="page" id="page-tracker">
+  <div class="ph">
+    <div class="ph-eye">Personal Progress</div>
+    <div class="ph-title">My Exam Tracker</div>
+    <div class="ph-sub">Track every exam. Status saves automatically in your browser.</div>
+  </div>
+  <div class="stats-row" id="tracker-stats"></div>
+  <div class="ttable" id="tracker-table"></div>
+</div>
+
+<div class="page" id="page-why">
+  <div class="ph">
+    <div class="ph-eye">9 Career Paths Evaluated</div>
+    <div class="ph-title">Why Each Career</div>
+    <div class="ph-sub">India&rsquo;s need &middot; ROI &middot; Social impact &middot; Honest counsellor view. Click any card to expand.</div>
+  </div>
+  <div class="wgrid" id="why-grid"></div>
+</div>
+
+<div class="page" id="page-about">
+  <div class="ph">
+    <div class="ph-eye">Guide</div>
+    <div class="ph-title">How to Use ExamPath 2027</div>
+  </div>
+  <div class="asec">
+    <h3>&#x1F393; What is ExamPath 2027?</h3>
+    <p>A free, offline-capable exam and career navigation agent for Grade 12 PCM students (Batch of 2027). Covers 53 exams across engineering, research, design, management, defence, and international options.</p>
+    <p><strong>No login. No data collection. No internet needed after loading.</strong> Progress saves locally in your browser.</p>
+  </div>
+  <div class="asec">
+    <h3>&#x1F4CB; How to use each section</h3>
+    <ul>
+      <li><strong>All Exams:</strong> Browse 53 exams. Filter by track. The urgency ring shows days until registration closes. Click &#x1F517; to open the official website. Update status via the dropdown &mdash; saves automatically.</li>
+      <li><strong>Timeline:</strong> Month-by-month from Jul 2026 to Sep 2027. Click a month header to expand.</li>
+      <li><strong>Career Compass:</strong> 5 questions &rarr; personalised career match + priority exam list.</li>
+      <li><strong>My Progress:</strong> Every exam in a table. Update status and track completion.</li>
+      <li><strong>Why Each Career:</strong> 9 careers evaluated &mdash; India need, ROI, impact. Click to expand.</li>
+    </ul>
+  </div>
+  <div class="asec">
+    <h3>&#x2B50; The Hidden Gem: IISc Bangalore</h3>
+    <p>IISc Bangalore is NIRF #1 in India &mdash; right in Bangalore. Admits via IAT exam (June). Fees: ~&#x20B9;15,000/year. INSPIRE scholarship: &#x20B9;80,000/year &mdash; net cost nearly zero. Register at both <strong>iiseradmission.in</strong> AND <strong>admissions.iisc.ac.in</strong> separately. PCM students need basic Biology preparation.</p>
+  </div>
+  <div class="asec">
+    <h3>&#x1F6E1;&#xFE0F; Defence Shortcut: Army TES + Navy BTech</h3>
+    <p>Both Army Technical Entry Scheme and Navy 10+2 BTech Cadet Entry use <strong>JEE Main rank as sole shortlisting criterion</strong>. No extra exam. No fee. Apply after JEE Main 2027 result &mdash; 30 minutes. Zero extra preparation needed.</p>
+  </div>
+  <div class="asec">
+    <h3>&#x1F7E2; BLR Tag</h3>
+    <p>Cards marked <span class="btag">BLR</span> have a campus or key resource in Bangalore. 14 options including IISc (NIRF #1), IIIT Bangalore, PES, RV College, BMS College, Amrita Bengaluru, Scaler SST, NID Bengaluru, NIFT Bangalore, Srishti Manipal, Azim Premji University, Liverpool Bengaluru.</p>
+  </div>
+  <div class="asec">
+    <h3>&#x26A0;&#xFE0F; Note on Dates</h3>
+    <p>All 2027 exam dates are <strong>estimated</strong> based on 2025&ndash;26 patterns. Always verify on official websites before registering or paying fees.</p>
+  </div>
+</div>
+
+</main>
+</div>
+
+<nav class="mobnav">
+  <div class="mobits">
+    <button class="mobit active" onclick="showPage('exams')" id="mnav-exams"><span class="mobic">&#x1F4CB;</span>Exams</button>
+    <button class="mobit" onclick="showPage('cal')" id="mnav-cal"><span class="mobic">&#x1F4C5;</span>Timeline</button>
+    <button class="mobit" onclick="showPage('compass')" id="mnav-compass"><span class="mobic">&#x1F9ED;</span>Compass</button>
+    <button class="mobit" onclick="showPage('tracker')" id="mnav-tracker"><span class="mobic">&#x2705;</span>Progress</button>
+    <button class="mobit" onclick="showPage('why')" id="mnav-why"><span class="mobic">&#x1F4A1;</span>Why</button>
+  </div>
+</nav>
+<div class="toast" id="toast"></div>
+
+<script>
+const TR={
+  eng:{l:"Engineering & Technology",c:"#1565C0",bg:"#D4E6F1"},
+  medical:{l:"Medical & Health",c:"#B71C1C",bg:"#FFEBEE"},
+  law:{l:"Law & Government",c:"#00695C",bg:"#E0F2F1"},
+  commerce:{l:"Management & Commerce",c:"#E65100",bg:"#FFF3E0"},
+  design:{l:"Design, Arts & Culture",c:"#DD6B20",bg:"#FFF8E1"},
+  media:{l:"Media, Humanities & Social",c:"#4527A0",bg:"#EDE7F6"},
+  defence:{l:"Defence",c:"#0D47A1",bg:"#E3F2FD"},
+  hospitality:{l:"Hospitality & Tourism",c:"#4E342E",bg:"#EFEBE9"},
+  sports:{l:"Sports & Physical Education",c:"#2E7D32",bg:"#E8F5E9"},
+  intl:{l:"International",c:"#6A1B9A",bg:"#F3E5F5"}
+};
+
+const EX=[
+{id:1,n:"JEE Main 2027 Session 1",s:"JEE Main S1",t:"eng",w:"PCM 90 MCQs 3hrs CBT",ed:"~Jan 21-30 2027",ro:"Oct 2026",rd:"Nov 2026",rdt:"2026-11-30",url:"https://jeemain.nta.nic.in",fee:"&amp;#x20B9;1,000",out:"NITs IIITs GFTIs 31000+ seats. Gateway for BITS/VIT/SRM/Manipal.",pr:"CRITICAL",how:"Most important exam. Covers 85% of KCET+BITSAT prep.",blr:false},
+{id:2,n:"JEE Main 2027 Session 2",s:"JEE Main S2",t:"eng",w:"Same as S1. Best of 2 counts.",ed:"~Apr 2-9 2027",ro:"Feb-Mar 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://jeemain.nta.nic.in",fee:"&amp;#x20B9;1,000",out:"Same as S1. Improved rank replaces S1 automatically.",pr:"CRITICAL",how:"Register separately Feb 2027. One extra attempt zero extra prep.",blr:false},
+{id:3,n:"JEE Advanced 2027",s:"JEE Advanced",t:"eng",w:"PCM Advanced 2 papers x 3hrs",ed:"~May-Jun 2027",ro:"~May 2027",rd:"~2 weeks",rdt:"2027-05-20",url:"https://jeeadv.ac.in",fee:"&amp;#x20B9;2,800",out:"All 23 IITs - India's most prestigious engineering institutions.",pr:"CRITICAL",how:"Watch JEE Main result SAME DAY. Register within 2 weeks.",blr:false},
+{id:4,n:"JoSAA Counselling 2027 (IITs+NITs+IIITs)",s:"JoSAA Counselling",t:"eng",w:"NOT an exam - centralised seat allocation using JEE ranks",ed:"Jun-Jul 2027",ro:"Jun 2027",rd:"Jul 2027",rdt:"2027-07-15",url:"https://josaa.nic.in",fee:"Free",out:"23 IITs 31 NITs 26 IIITs 40 GFTIs - 120+ premier govt institutions.",pr:"CRITICAL",how:"Must register on josaa.nic.in after JEE results. Choice filling is critical.",blr:false},
+{id:5,n:"JAC Delhi Counselling 2027 (DTU+NSUT+IGDTUW)",s:"JAC Delhi",t:"eng",w:"NOT an exam - uses JEE Main rank for Delhi govt colleges",ed:"~Jul 2027",ro:"Jul 2027",rd:"Jul 2027",rdt:"2027-07-31",url:"https://jacdelhi.admissions.nic.in",fee:"Free",out:"DTU Delhi Technological University. NSUT. IGDTUW. IIIT Delhi. Excellent govt colleges.",pr:"HIGH",how:"Apply on JAC Delhi portal SEPARATELY from JoSAA. Same JEE Main rank.",blr:false},
+{id:6,n:"KCET 2027 Karnataka CET",s:"KCET",t:"eng",w:"PCM 60 marks each Offline OMR No negative marking",ed:"~Apr 23-24 2027",ro:"~Jan 2027",rd:"~Feb 27 2027",rdt:"2027-02-27",url:"https://cetonline.karnataka.gov.in/kea",fee:"~&amp;#x20B9;750",out:"RV College BMS MSRIT BMSCE PES quota - top Karnataka colleges.",pr:"CRITICAL",how:"Study 1st+2nd PUC syllabus. Most important Bangalore exam.",blr:true},
+{id:7,n:"COMEDK UGET 2027",s:"COMEDK",t:"eng",w:"PCM 180 MCQs 3hrs CBT No negative marking",ed:"~May 10-11 2027",ro:"Jan-Feb 2027",rd:"Apr 2027",rdt:"2027-04-30",url:"https://www.comedk.org",fee:"~&amp;#x20B9;1,500",out:"200+ Karnataka private colleges: PES Dayananda Sagar CMR RNSIT.",pr:"HIGH",how:"Open to all India. JEE prep sufficient. Essential Karnataka private backup.",blr:true},
+{id:8,n:"BITSAT 2027 BITS Pilani",s:"BITSAT",t:"eng",w:"PCM+English+LR 130Qs 3hrs CBT Bonus Qs",ed:"~May 20-26 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://www.bitsadmission.com",fee:"~&amp;#x20B9;3,400",out:"BITS Pilani BITS Goa BITS Hyderabad nearest to Bangalore. Dual degree options.",pr:"CRITICAL",how:"75%+ PCM boards mandatory. India's best private university.",blr:false},
+{id:9,n:"VITEEE 2027 VIT",s:"VITEEE",t:"eng",w:"PCM+English+Aptitude CBT",ed:"~Apr 19-30 2027",ro:"Nov 2026",rd:"Mar 2027",rdt:"2027-03-31",url:"https://viteee.vit.ac.in",fee:"~&amp;#x20B9;1,350",out:"VIT Vellore VIT Chennai VIT-AP Amaravati nearest to Bangalore.",pr:"HIGH",how:"Book early slot - fills fast. VIT-AP is closest campus.",blr:false},
+{id:10,n:"SRMJEEE 2027",s:"SRMJEEE",t:"eng",w:"PCM+English+Aptitude CBT Multiple phases",ed:"Apr 2027",ro:"Oct 2026",rd:"Apr 2027",rdt:"2027-04-30",url:"https://www.srmist.edu.in/admission",fee:"~&amp;#x20B9;1,200",out:"SRM Chennai SRM-AP Amaravati SRM Delhi-NCR.",pr:"MEDIUM",how:"Apply early for better campus and slot choice.",blr:false},
+{id:11,n:"Amrita AEEE 2027 Bangalore Campus",s:"Amrita AEEE",t:"eng",w:"PCM CBT+offline 2 phases",ed:"~Apr 2027",ro:"Nov 2026",rd:"Apr 2027",rdt:"2027-04-30",url:"https://www.amrita.edu/admissions/btech",fee:"~&amp;#x20B9;800",out:"&amp;#x2B50; Amrita BENGALURU IN BANGALORE! Coimbatore Chennai Kochi.",pr:"HIGH",how:"JEE Main score accepted directly - no separate exam needed.",blr:true},
+{id:12,n:"PESSAT 2027 Bangalore",s:"PESSAT",t:"eng",w:"PCM+Aptitude CBT Also accepts KCET/COMEDK/JEE Main",ed:"Apr-May 2027",ro:"Dec 2026",rd:"Apr 2027",rdt:"2027-04-30",url:"https://pes.edu/admissions",fee:"~&amp;#x20B9;500",out:"PES University Bengaluru - Ring Road + EC Campus both IN BANGALORE.",pr:"HIGH",how:"KCET is the primary affordable route. PESSAT for other seats.",blr:true},
+{id:13,n:"MU OET 2027 Manipal Bangalore",s:"Manipal OET",t:"eng",w:"PCM+English+Aptitude CBT Multiple windows",ed:"Apr-May 2027",ro:"Dec 2026",rd:"Apr 2027",rdt:"2027-04-30",url:"https://manipal.edu/mu/admissions.html",fee:"~&amp;#x20B9;700-1500",out:"Manipal Bengaluru IN BANGALORE! Manipal Udupi Jaipur Dubai.",pr:"HIGH",how:"JEE Main also accepted. Multiple test windows - flexible.",blr:true},
+{id:14,n:"UGEE 2027 IIIT Hyderabad",s:"IIIT Hyderabad",t:"eng",w:"UGEE online aptitude+interview OR JEE Main merit",ed:"~Apr-May 2027",ro:"Jan-Feb 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://ugadmissions.iiit.ac.in",fee:"~&amp;#x20B9;1,500",out:"IIIT Hyderabad BTech CSE/ECE Dual Degree BTech+MS - best CS research outside IITs.",pr:"CRITICAL",how:"Apply UGEE + JEE Main simultaneously. India's best CS research outside IITs.",blr:false},
+{id:15,n:"iMTech 2027 IIIT Bangalore",s:"IIIT Bangalore",t:"eng",w:"Application+JEE Main score/12th merit Rolling",ed:"Rolling Jan-May 2027",ro:"Dec 2026",rd:"May 2027",rdt:"2027-05-31",url:"https://www.iiitb.ac.in/admissions",fee:"Minimal",out:"IIIT Bangalore Electronic City 5-yr BTech+MTech: Software Data Science.",pr:"HIGH",how:"Underrated Bangalore gem. IBM/SAP/Infosys partners. Dual degree in 5 yrs.",blr:true},
+{id:16,n:"NSET 2027 Scaler SST Bangalore",s:"Scaler NSET",t:"eng",w:"Maths+LR 120min Online FastTrack via JEE/SAT",ed:"Rolling anytime",ro:"OPEN NOW",rd:"Jun 2027",rdt:"2027-06-30",url:"https://www.scaler.com/school-of-technology",fee:"~&amp;#x20B9;1,000",out:"Scaler SST Electronic City Bangalore. Integrated BSc+MSc CS &amp; AI.",pr:"HIGH",how:"&amp;#x26A0;&amp;#xFE0F; BSc not BTech - verify employer/MS abroad acceptance before committing.",blr:true},
+{id:17,n:"Plaksha BTech 2027",s:"Plaksha",t:"eng",w:"JEE Main/SAT/ACT + Virtual Tech Interview",ed:"Rolling Jan-Jun 2027",ro:"Oct 2026",rd:"Jun 2027",rdt:"2027-06-30",url:"https://plaksha.edu.in/admissions",fee:"Free",out:"Plaksha Mohali BTech CS &amp; AI Data Science Robotics Biological Systems.",pr:"MEDIUM",how:"No extra exam if JEE done. US-style pedagogy. Purdue/UC Berkeley collaborations.",blr:false},
+{id:18,n:"IMU CET 2027 Marine Engineering",s:"IMU CET",t:"eng",w:"Physics+Chemistry+Maths+English+Aptitude CBT",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://imu.edu.in",fee:"~&amp;#x20B9;1,500",out:"Indian Maritime University BTech Marine Engineering Naval Architecture. IMU Chennai/Kolkata/Mumbai/Visakhapatnam.",pr:"MEDIUM",how:"Only exam for Marine Engineering career. Merchant navy + global shipping industry.",blr:false},
+{id:19,n:"IAT 2027 IISER Aptitude Test",s:"IAT (IISER)",t:"eng",w:"Bio+Chem+Maths+Physics 60MCQs CBT 3hrs -1 wrong",ed:"~Jun 7 2027",ro:"~Mar 5 2027",rd:"~Apr 13 2027",rdt:"2027-04-13",url:"https://iiseradmission.in",fee:"~&amp;#x20B9;2,000",out:"&amp;#x2B50; IISc Bangalore NIRF#1! + 7 IISERs + IIT Madras BS. Fees ~&amp;#x20B9;15K/yr + &amp;#x20B9;80K scholarship.",pr:"CRITICAL",how:"PCM: add basic Biology. 80% overlap with JEE. Register IISc separately!",blr:true},
+{id:20,n:"IISc BS Research via IAT Bangalore",s:"IISc Bangalore",t:"eng",w:"Same IAT exam. Register SEPARATELY at IISc portal.",ed:"~Jun 7 2027 via IAT",ro:"~Mar 2027 IISc portal",rd:"~Apr 2027",rdt:"2027-04-13",url:"https://admissions.iisc.ac.in",fee:"~&amp;#x20B9;500 extra",out:"&amp;#x2B50; IISc Bengaluru NIRF#1 IN INDIA IN BANGALORE Fees ~&amp;#x20B9;15K/yr &amp;#x20B9;80K scholarship.",pr:"CRITICAL",how:"Register at IISc portal SEPARATELY after IAT. Two registrations = two chances.",blr:true},
+{id:21,n:"AP TS EAMCET 2027",s:"EAMCET",t:"eng",w:"PCM Online CBT",ed:"~May 2027",ro:"Feb-Mar 2027",rd:"Apr 2027",rdt:"2027-04-30",url:"https://cets.apsche.ap.gov.in",fee:"~&amp;#x20B9;700",out:"Govt &amp; private colleges in AP/Telangana: SRM-AP Amrita-AP JNTU.",pr:"OPTIONAL",how:"Consider if Hyderabad colleges acceptable (6 hrs from Bangalore).",blr:false},
+{id:22,n:"WBJEE 2027 West Bengal",s:"WBJEE",t:"eng",w:"PCM 2 papers Offline OMR",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Feb 2027",rdt:"2027-02-28",url:"https://wbjeeb.nic.in",fee:"~&amp;#x20B9;500",out:"Jadavpur University top 5 govt engineering India. IIEST Shibpur.",pr:"OPTIONAL",how:"Worth attempting mainly for Jadavpur University.",blr:false},
+{id:23,n:"NEET UG 2027 National Medical Entrance",s:"NEET UG",t:"medical",w:"Physics+Chemistry+Biology 180MCQs 3hrs20min CBT from 2027",ed:"~May 2 2027",ro:"~Feb 2027",rd:"~Mar 2027",rdt:"2027-03-08",url:"https://neet.nta.nic.in",fee:"~&amp;#x20B9;1,700",out:"MBBS BDS BAMS BHMS BUMS BSc Nursing BVSc at 700+ medical colleges including AIIMS &amp; JIPMER.",pr:"CRITICAL",how:"India's biggest exam 20 lakh+ students. From 2027 CBT mode. PCB required.",blr:false},
+{id:24,n:"AIIMS via NEET 2027",s:"AIIMS via NEET",t:"medical",w:"Same NEET UG exam. No separate entrance. AIIMS counselling separate.",ed:"AIIMS counselling Jun-Jul 2027",ro:"Jun 2027 post NEET",rd:"Jul 2027",rdt:"2027-07-15",url:"https://aaccc.gov.in",fee:"Included in NEET",out:"16 AIIMS campuses - AIIMS Delhi top 1 AIIMS Bangalore Bhopal Bhubaneswar Jodhpur.",pr:"CRITICAL",how:"No separate exam. NEET rank used. AIIMS counselling separate from MCC. Apply separately.",blr:true},
+{id:25,n:"JIPMER via NEET 2027",s:"JIPMER via NEET",t:"medical",w:"Same NEET UG exam. No separate entrance.",ed:"JIPMER counselling Jun-Jul 2027",ro:"Jun 2027",rd:"Jul 2027",rdt:"2027-07-15",url:"https://jipmer.edu.in",fee:"Included in NEET",out:"JIPMER Puducherry + JIPMER Karaikal - premier medical institutions.",pr:"HIGH",how:"No extra exam. Appear for NEET then apply through JIPMER own counselling portal.",blr:false},
+{id:26,n:"KCET 2027 Biology Stream Karnataka",s:"KCET Biology",t:"medical",w:"Physics+Chemistry+Biology Offline OMR No negative marking",ed:"~Apr 23-24 2027",ro:"~Jan 2027",rd:"~Feb 27 2027",rdt:"2027-02-27",url:"https://cetonline.karnataka.gov.in/kea",fee:"~&amp;#x20B9;750",out:"Karnataka govt medical dental BSc Nursing B.Pharm Physiotherapy colleges.",pr:"HIGH",how:"Same KCET exam but Biology paper instead of Maths. Karnataka domicile required.",blr:true},
+{id:27,n:"BSc Nursing Allied Health via CUET 2027",s:"BSc Nursing CUET",t:"medical",w:"Biology+Chemistry+English CBT via CUET UG",ed:"~May-Jun 2027",ro:"Feb-Mar 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://cuet.samarth.ac.in",fee:"~&amp;#x20B9;700-1500",out:"BSc Nursing Allied Health Sciences at central universities BHU AMU IGNOU Jamia.",pr:"MEDIUM",how:"Good option for PCB students targeting nursing or allied health without NEET pressure.",blr:false},
+{id:28,n:"ICAR AIEEA-UG 2027 Agriculture",s:"ICAR AIEEA-UG",t:"medical",w:"PCB or PCM - Physics+Chemistry+Biology/Maths CBT via NTA",ed:"~Jun 2027",ro:"Mar 2027",rd:"Apr 2027",rdt:"2027-04-30",url:"https://icar.nta.nic.in",fee:"~&amp;#x20B9;1,000",out:"BSc Agriculture at 63 central agricultural universities ICAR institutes across India.",pr:"MEDIUM",how:"PCB or PCM both eligible. Agriculture science food tech horticulture careers.",blr:false},
+{id:29,n:"CLAT 2027 Common Law Admission Test",s:"CLAT",t:"law",w:"English+GK+Legal Reasoning+Logical+Quantitative 120Qs 2hrs",ed:"~Dec 2026",ro:"Jul 2026",rd:"Nov 2026",rdt:"2026-11-30",url:"https://consortiumofnlus.ac.in",fee:"~&amp;#x20B9;4,000",out:"24 National Law Universities NLUs: NLSIU Bangalore NLU Delhi NALSAR Hyderabad. BA LLB 5-yr.",pr:"HIGH",how:"Open to ALL streams - Science Commerce Arts. No Maths needed. Start GK+Legal Reasoning Jul 2026.",blr:false},
+{id:30,n:"AILET 2027 NLU Delhi India's top law school",s:"AILET",t:"law",w:"English+GK+Legal Aptitude+Reasoning 150Qs 1.5hrs",ed:"~Dec 2026",ro:"Aug 2026",rd:"Nov 2026",rdt:"2026-11-30",url:"https://nationallawuniversitydelhi.in",fee:"~&amp;#x20B9;3,000",out:"NLU Delhi exclusively ~80 BA LLB seats. India's top law school. Avg placement &amp;#x20B9;15-20 LPA.",pr:"HIGH",how:"Separate exam from CLAT. Harder questions. Attempt both simultaneously.",blr:false},
+{id:31,n:"LSAT India 2027",s:"LSAT India",t:"law",w:"Analytical Reasoning+Logical Reasoning+Reading Comprehension CBT No GK",ed:"~Jan 2027 + Jun 2027",ro:"Oct 2026",rd:"Dec 2026",rdt:"2026-12-31",url:"https://discoverlaw.in",fee:"~&amp;#x20B9;3,499",out:"80+ private law colleges: Jindal Global Law School Symbiosis Christ Amity.",pr:"MEDIUM",how:"Tests logical thinking NO GK. Good for students strong in reasoning.",blr:false},
+{id:32,n:"SLAT 2027 Symbiosis Law",s:"SLAT",t:"law",w:"Legal+Logical+Analytical+Reading+GK Online",ed:"~May 2027",ro:"Jan 2027",rd:"Apr 2027",rdt:"2027-04-30",url:"https://slat.set-test.net",fee:"~&amp;#x20B9;1,500",out:"Symbiosis Law School Pune Hyderabad Nagpur.",pr:"MEDIUM",how:"Part of Symbiosis ecosystem. Good private law school option.",blr:false},
+{id:33,n:"SSC CHSL 2027 Govt Job 12th Pass",s:"SSC CHSL",t:"law",w:"GK+English+Quant+Reasoning CBT",ed:"~Mar-Apr 2027",ro:"Nov 2026",rd:"Dec 2026",rdt:"2026-12-31",url:"https://ssc.nic.in",fee:"~&amp;#x20B9;100",out:"Central Govt jobs: Lower Divisional Clerk Data Entry Operator Postal Assistant. Permanent job after 12th.",pr:"MEDIUM",how:"Open to ANY stream. Job security steady promotion central govt pay.",blr:false},
+{id:34,n:"RRB NTPC 2027 Indian Railways 12th Pass",s:"RRB NTPC",t:"law",w:"Mathematics+General Intelligence+General Awareness CBT 2 stages",ed:"~2027",ro:"~2027",rd:"~2027",rdt:"2027-06-30",url:"https://indianrailways.gov.in",fee:"~&amp;#x20B9;500",out:"Indian Railways: Junior Clerk Station Master Commercial Apprentice. Permanent govt job.",pr:"MEDIUM",how:"Open to 12th pass from ANY stream. Large recruitment good salary.",blr:false},
+{id:35,n:"IPMAT Indore 2027 IIM Indore",s:"IPMAT Indore",t:"commerce",w:"QA MCQ+Short Answer+Verbal 90Qs 120min CBT+PI",ed:"~May 3-5 2027",ro:"~Feb 2027",rd:"~Mar 2027",rdt:"2027-03-31",url:"https://iimidr.ac.in",fee:"~&amp;#x20B9;4,130",out:"IIM Indore BA+MBA 5yrs. Also IIM Ranchi Shillong Amritsar. 150 seats.",pr:"HIGH",how:"Open to ALL streams. No Maths mandatory but strong quant helps.",blr:false},
+{id:36,n:"IPMAT Rohtak JIPMAT 2027",s:"IPMAT Rohtak",t:"commerce",w:"IPMAT Rohtak: QA+LR+VA JIPMAT NTA: QA+DILR+VA",ed:"~May 2027",ro:"~Feb 2027",rd:"~Mar 2027",rdt:"2027-03-31",url:"https://iimrohtak.ac.in/ipmat",fee:"~&amp;#x20B9;2,000",out:"IIM Rohtak IIM Jammu IIM Bodh Gaya 5-yr integrated programs.",pr:"MEDIUM",how:"Same prep as IPMAT Indore. Less competitive. Attempt all 3 if management path chosen.",blr:false},
+{id:37,n:"NPAT 2027 NMIMS University",s:"NPAT",t:"commerce",w:"Quantitative+Reasoning+Language CBT Multiple windows",ed:"~May-Jun 2027",ro:"Dec 2026",rd:"May 2027",rdt:"2027-05-31",url:"https://npat.edu.in",fee:"~&amp;#x20B9;1,800",out:"NMIMS Mumbai NMIMS Bangalore NMIMS Hyderabad BBA BSc BTech programs.",pr:"HIGH",how:"Open to ALL streams. NMIMS Bangalore relevant. Multiple exam windows.",blr:true},
+{id:38,n:"IIM Bangalore UG Test 2027 BSc Economics+Data Science",s:"IIM Bangalore UG",t:"commerce",w:"Application+Aptitude Test+Personal Interview",ed:"~Oct-Nov 2026 early window",ro:"Oct 2026",rd:"Nov 2026",rdt:"2026-11-30",url:"https://iimb.ac.in/admissions",fee:"~&amp;#x20B9;1,000",out:"IIM Bangalore BSc Economics with Data Science minor BSc Data Science with Economics minor. Very prestigious.",pr:"HIGH",how:"Early Oct 2026 deadline. Very new program small batch very competitive. Apply early.",blr:true},
+{id:39,n:"IIM Kozhikode BMS-AT 2027",s:"IIM Kozhikode BMS",t:"commerce",w:"Aptitude Test+Personal Interview",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://iimk.ac.in/admissions",fee:"~&amp;#x20B9;1,000",out:"IIM Kozhikode BMS Bachelor of Management Studies 3-year UG program.",pr:"MEDIUM",how:"Separate from IPMAT. BMS is 3-yr degree not 5-yr. Good IIM brand.",blr:false},
+{id:40,n:"SET 2027 Symbiosis BBA BSc",s:"SET BBA/BSc",t:"commerce",w:"Quantitative+Logical+Verbal+GK CBT+PI",ed:"~May 2027",ro:"Jan 2027",rd:"Apr 2027",rdt:"2027-04-30",url:"https://set-test.net",fee:"~&amp;#x20B9;1,500",out:"Symbiosis BBA BSc programs at Pune Hyderabad Bengaluru campuses.",pr:"MEDIUM",how:"Different SET for BBA/BSc vs SET for BTech. Open to all streams.",blr:false},
+{id:41,n:"CA Foundation 2027 Chartered Accountancy",s:"CA Foundation",t:"commerce",w:"Accounting+Business Laws+Maths/Statistics+Economics Pen-paper 2 attempts/year",ed:"May 2027 Att1 Nov 2027 Att2",ro:"Jan 2027 May attempt",rd:"Mar 2027",rdt:"2027-03-31",url:"https://icai.org",fee:"~&amp;#x20B9;1,100/attempt",out:"Chartered Accountancy qualification ICAI India's most respected professional finance qualification.",pr:"HIGH",how:"Register with ICAI after 12th results. 2 attempts/year. Start Foundation prep during 11th/12th.",blr:false},
+{id:42,n:"CS Foundation 2027 Company Secretary ICSI",s:"CS Foundation",t:"commerce",w:"Business Environment+Management+Economics+Accounting CBT",ed:"Jun 2027 + Dec 2027",ro:"Mar 2027",rd:"Apr 2027",rdt:"2027-04-30",url:"https://icsi.edu",fee:"~&amp;#x20B9;1,200",out:"Company Secretary qualification - corporate governance legal compliance board-level roles.",pr:"MEDIUM",how:"Open to ALL streams. Good career in corporate legal + compliance.",blr:false},
+{id:43,n:"CMA Foundation 2027 Cost Accountant ICMAI",s:"CMA Foundation",t:"commerce",w:"Economics+Financial Accounting+Laws+Business Maths CBT",ed:"Jun 2027 + Dec 2027",ro:"Mar 2027",rd:"Apr 2027",rdt:"2027-04-30",url:"https://icmai.in",fee:"~&amp;#x20B9;700",out:"Cost &amp; Management Accountant qualification - manufacturing govt finance consulting.",pr:"MEDIUM",how:"Open to ALL streams. Less competitive than CA. Good salary in management accounting.",blr:false},
+{id:44,n:"UCEED 2027 IIT Design Schools",s:"UCEED",t:"design",w:"Part A: CBT Visualization+Observation+Design Part B: Sketching 3hrs",ed:"~Jan 18 2027",ro:"Oct-Nov 2026",rd:"Nov 2026",rdt:"2026-11-30",url:"https://uceed.iitb.ac.in",fee:"~&amp;#x20B9;2,500",out:"BDes at IIT Bombay IIT Delhi IIT Guwahati IIT Hyderabad IIT Jodhpur.",pr:"CRITICAL",how:"Most missed deadline. Register Oct-Nov 2026. Start sketching daily from Jul 2026.",blr:false},
+{id:45,n:"NID DAT 2027 National Inst of Design",s:"NID DAT",t:"design",w:"Prelims: Offline 3hrs Creativity+Observation Mains: Studio Test",ed:"Prelims ~Jan Mains ~Mar-Apr",ro:"Sep-Oct 2026",rd:"Dec 6 2026",rdt:"2026-12-06",url:"https://admissions.nid.edu",fee:"~&amp;#x20B9;3,000",out:"NID Bengaluru IN BANGALORE! NID Ahmedabad BDes Product/Communication/Design.",pr:"HIGH",how:"Dec 6 2026 registration deadline. Daily sketching from Jul 2026.",blr:true},
+{id:46,n:"NIFT Entrance 2027",s:"NIFT",t:"design",w:"CAT: drawing 3hrs GAT: aptitude/GK/Quant CBT 2hrs",ed:"~Feb 13-14 2027",ro:"Nov-Dec 2026",rd:"Jan 2027",rdt:"2027-01-31",url:"https://nift.ac.in",fee:"~&amp;#x20B9;2,500",out:"NIFT Bangalore #3 nationally IN BANGALORE! NIFT Delhi Mumbai 20 campuses.",pr:"HIGH",how:"PCM Quant helps GAT. CAT requires creative drawing practice.",blr:true},
+{id:47,n:"iDAT 2027 IIAD UDIT",s:"iDAT UDIT",t:"design",w:"iDAT 2.5hrs Visual tasks+Writing+MCQs",ed:"Multiple rounds Jan-May 2027",ro:"Oct 2026 rolling",rd:"May 2027",rdt:"2027-05-31",url:"https://www.iiad.edu.in/admissions",fee:"~&amp;#x20B9;2,500",out:"UDIT Delhi = IIAD rebranded 2025. BDes: Communication Product Fashion Interior.",pr:"MEDIUM",how:"IIAD = UDIT same institution. Apply ONCE only. Kingston University London affiliation.",blr:false},
+{id:48,n:"Srishti Manipal Design Bangalore",s:"Srishti Manipal",t:"design",w:"Application+Portfolio+Personal Interview Multiple rounds",ed:"Feb-Apr 2027",ro:"Oct 2026",rd:"Apr 2027",rdt:"2027-04-30",url:"https://srishti.ac.in",fee:"~&amp;#x20B9;1,500",out:"Srishti Manipal Bangalore BDes: Product UX/Interaction BTech Design.",pr:"HIGH",how:"BTech Design available good for PCM students. Accepts UCEED scores.",blr:true},
+{id:49,n:"BFA via CUET 2027 Bachelor of Fine Arts",s:"BFA CUET",t:"design",w:"CUET UG + Studio/Portfolio evaluation",ed:"~May-Jun 2027",ro:"Feb-Mar 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://cuet.samarth.ac.in",fee:"~&amp;#x20B9;700-1500",out:"BFA at BHU Varanasi DU Delhi Jamia Allahabad. Painting Sculpture Applied Arts.",pr:"MEDIUM",how:"CUET is gateway. Then individual college studio/portfolio round.",blr:false},
+{id:50,n:"Sir JJ School of Art Mumbai",s:"Sir JJ School of Art",t:"design",w:"Own entrance exam+practical test+portfolio",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://sirjjschoolofart.in",fee:"~&amp;#x20B9;500",out:"India's oldest fine arts college est 1857. BFA: Painting Sculpture Applied Art.",pr:"MEDIUM",how:"Own exam not CUET. Highly prestigious. Mumbai location.",blr:false},
+{id:51,n:"BPA Indira Kala Sangeet Vishwavidyalaya Khairagarh Music",s:"BPA Music/Dance",t:"design",w:"Audition practical performance + Theory written test",ed:"~Apr-May 2027",ro:"Feb 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://www.iksv.ac.in",fee:"~&amp;#x20B9;500",out:"India's ONLY dedicated music university. BPA: Vocal Sitar Tabla Violin Kathak Bharatanatyam Theatre.",pr:"MEDIUM",how:"For students with genuine classical music/dance training. Audition is key not written exam.",blr:false},
+{id:52,n:"BMus 2027 Delhi University BHU",s:"BMus DU/BHU",t:"design",w:"CUET UG + Practical audition at respective university",ed:"~May-Jun 2027",ro:"Feb-Mar 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://cuet.samarth.ac.in",fee:"~&amp;#x20B9;700-1500",out:"BMus Bachelor of Music at DU Faculty of Music BHU Faculty of Performing Arts. Carnatic + Hindustani.",pr:"MEDIUM",how:"CUET is gateway. Then practical audition at DU/BHU. For students with formal music training.",blr:false},
+{id:53,n:"NSD Entrance National School of Drama",s:"NSD Theatre",t:"design",w:"Written test+Workshop+Personal Interview",ed:"~Jan-Feb 2027",ro:"Nov 2026",rd:"Dec 2026",rdt:"2026-12-31",url:"https://nsd.gov.in",fee:"~&amp;#x20B9;500",out:"NSD New Delhi India's most prestigious theatre training institution. 3-yr Theatre Arts diploma.",pr:"MEDIUM",how:"For students with genuine passion for theatre. Workshop selection is the critical round.",blr:false},
+{id:54,n:"MS University Baroda BFA",s:"MS University BFA",t:"design",w:"Own entrance exam + portfolio",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://msubaroda.ac.in",fee:"~&amp;#x20B9;500",out:"MS University Vadodara - one of India's top fine arts and design institutions. BFA BDes programs.",pr:"MEDIUM",how:"Own entrance. Highly reputed for Fine Arts Architecture Design. Vadodara Gujarat.",blr:false},
+{id:55,n:"Ashoka AAT 2027",s:"Ashoka",t:"design",w:"AAT 40MCQs 90min Problem-Solving+Critical Thinking+Essay+PI",ed:"4 rounds Nov 2026-Jun 2027",ro:"Oct 2026",rd:"Jun 2027",rdt:"2027-06-30",url:"https://application.ashoka.edu.in",fee:"FREE",out:"Ashoka University BSc CS/Maths/Physics BA Economics/Policy. Gateway to global PhD.",pr:"MEDIUM",how:"Free application + Free AAT. India's top liberal arts + research university.",blr:false},
+{id:56,n:"Plaksha Robotics BTech 2027",s:"Plaksha Robotics",t:"design",w:"JEE Main/SAT/ACT + Virtual Tech Interview - Robotics &amp; Cyber-Physical Systems",ed:"Rolling Jan-Jun 2027",ro:"Oct 2026",rd:"Jun 2027",rdt:"2027-06-30",url:"https://plaksha.edu.in/admissions",fee:"Free",out:"Plaksha Mohali BTech Robotics &amp; Cyber-Physical Systems - one of very few in India.",pr:"MEDIUM",how:"No extra exam if JEE done. Unique Robotics BTech program. Only a handful of Indian institutes offer this.",blr:false},
+{id:57,n:"NEST 2027 NISER CEBS",s:"NEST",t:"design",w:"Bio+Chem+Maths+Physics 4 sections CBT 3.5hrs",ed:"~Jun 7 2027",ro:"~Mar 2027",rd:"~Apr 2027",rdt:"2027-04-13",url:"https://nestexam.in",fee:"~&amp;#x20B9;1,500",out:"NISER Bhubaneswar CEBS Mumbai 5-yr Integrated MSc DISHA scholarship &amp;#x20B9;60K/yr.",pr:"HIGH",how:"Identical prep to IAT. DAE funded institution. Attempt both IAT and NEST.",blr:false},
+{id:58,n:"CUET UG 2027 Central Universities Gateway",s:"CUET UG",t:"media",w:"Domain subjects+Language+General Test CBT",ed:"~May-Jun 2027",ro:"Feb-Mar 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://cuet.samarth.ac.in",fee:"~&amp;#x20B9;700-1500",out:"DU JNU BHU AMU Jamia + 200+ universities. BA BSc BCom BJMC BMS programs.",pr:"HIGH",how:"One exam 200+ universities. Good safety net for any stream.",blr:false},
+{id:59,n:"TISS BAT 2027 Social Sciences",s:"TISS BAT",t:"media",w:"Mental Ability+General Awareness+English OMR+Essay",ed:"~May 2027",ro:"Feb 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://tiss.edu",fee:"~&amp;#x20B9;500",out:"TISS Mumbai India's premier social sciences institution. BA: Social Sciences Development Studies Humanities.",pr:"MEDIUM",how:"TISS now uses CUET for some programs. Check current year. Highly reputed for social work careers.",blr:false},
+{id:60,n:"IIMC Entrance 2027 Mass Communication",s:"IIMC",t:"media",w:"Written: English+GK+Media Awareness Then GD+Interview",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://iimc.gov.in",fee:"~&amp;#x20B9;500",out:"IIMC New Delhi India's best journalism school. PG Diploma: Journalism Mass Communication Hindi Journalism.",pr:"MEDIUM",how:"Highly competitive. Strong GK+current affairs+English writing. Daily newspaper reading essential.",blr:false},
+{id:61,n:"XIC OET 2027 Xavier Mass Communication",s:"XIC OET",t:"media",w:"Written aptitude test+Personal Interview",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://xaviercomm.org",fee:"~&amp;#x20B9;500",out:"Xavier Institute of Communications Mumbai. BMM Certificate programs: Journalism Advertising PR.",pr:"MEDIUM",how:"Highly regarded in media industry. Mumbai. Strong alumni in Bollywood + media.",blr:false},
+{id:62,n:"FLAME FEAT 2027",s:"FLAME",t:"media",w:"FEAT: Logic+English+GK 1.5hrs online+SOP+Interview",ed:"Nov 2026-May 2027",ro:"Oct 2026",rd:"May 2027",rdt:"2027-05-31",url:"https://www.flame.edu.in/admissions",fee:"~&amp;#x20B9;2,000",out:"FLAME University Pune BA/BBA/BSc/BDes Liberal Education NOT engineering.",pr:"OPTIONAL",how:"NOT an engineering college. India's top liberal arts university NAAC A++.",blr:false},
+{id:63,n:"APU Entrance 2027 Azim Premji Univ Bangalore",s:"Azim Premji Univ",t:"media",w:"Own test+SOP+Personal Interview Rolling",ed:"Jan-May 2027",ro:"Nov 2026",rd:"Apr 2027",rdt:"2027-04-30",url:"https://azimpremjiuniversity.edu.in",fee:"~&amp;#x20B9;500",out:"Azim Premji University Bengaluru IN BANGALORE! BSc+BEd dual BA Maths Fees ~&amp;#x20B9;3L/yr.",pr:"MEDIUM",how:"Heavily subsidised Wipro founder. Unique BSc+BEd one-of-a-kind. IN BANGALORE.",blr:true},
+{id:64,n:"KUCAT 2027 Krea University",s:"Krea KUCAT",t:"media",w:"KUCAT: Aptitude+Interest inventory+SOP+PI",ed:"Rolling Jan-May 2027",ro:"Nov 2026",rd:"May 2027",rdt:"2027-05-31",url:"https://www.krea.edu.in/admissions",fee:"Free",out:"Krea University Sri City AP. BSc CS Data Science Economics Psychology.",pr:"OPTIONAL",how:"Liberal arts university. BSc CS/Data Science available. NOT engineering.",blr:false},
+{id:65,n:"JSAT 2027 OP Jindal Global University",s:"OP Jindal",t:"media",w:"JSAT: Quant+Verbal+Logical Online Accepts SAT/CUET",ed:"Nov 2026-May 2027",ro:"Oct 2026",rd:"May 2027",rdt:"2027-05-31",url:"https://jgu.edu.in/admissions",fee:"~&amp;#x20B9;1,000",out:"JGU Sonipat. Law Business Liberal Arts International Affairs.",pr:"OPTIONAL",how:"Good for BA Liberal Arts + Sciences. NOT engineering. India's top ranked private university some surveys.",blr:false},
+{id:66,n:"NDA 2027 I National Defence Academy",s:"NDA I",t:"defence",w:"Maths 300marks+General Ability 600marks Pen-paper 2.5hrs+SSB 5days+Medical",ed:"~Apr 13 2027",ro:"~Jan 2027",rd:"~Feb 2027",rdt:"2027-02-28",url:"https://upsc.gov.in",fee:"Free UPSC",out:"Army Navy Air Force Officer from 12th. BSc JNU. Commissioned as Officer.",pr:"HIGH",how:"Start physical training NOW 2km run push-ups. Maths overlaps with JEE. NCC big advantage.",blr:false},
+{id:67,n:"NDA 2027 II",s:"NDA II",t:"defence",w:"Same as NDA I.",ed:"~Sep 14 2027",ro:"~May 2027",rd:"~Jun 2027",rdt:"2027-06-30",url:"https://upsc.gov.in",fee:"Free UPSC",out:"Same as NDA I. Second annual cycle.",pr:"MEDIUM",how:"Attempt NDA II even if NDA I was given. Age window 16.5-19.5 years.",blr:false},
+{id:68,n:"Army TES 2027 Technical Entry Scheme",s:"Army TES",t:"defence",w:"NO written exam - shortlisted on JEE Main CRL rank+SSB 5days+Medical",ed:"Apply Jul-Aug 2027 after JEE result",ro:"Jul 2027 post JEE",rd:"~Aug 2027",rdt:"2027-08-31",url:"https://joinindianarmy.nic.in",fee:"FREE",out:"Indian Military Academy Dehradun 4-yr BTech+Permanent Commission as Army Officer.",pr:"HIGH",how:"ZERO EXTRA PREP. JEE Main IS the eligibility. Apply same week as result. FREE.",blr:false},
+{id:69,n:"Navy BTech Cadet Entry 10+2 Scheme",s:"Navy BTech Cadet",t:"defence",w:"NO written exam - shortlisted on JEE Main CRL rank+SSB+Medical 70% PCM required",ed:"Apply Nov 2026-Jan 2027",ro:"Nov 2026",rd:"~Jan 2027",rdt:"2027-01-31",url:"https://joinindiannavy.gov.in",fee:"FREE",out:"Indian Naval Academy Ezhimala 4-yr BTech Mech/ECE+Permanent Commission as Sub-Lieutenant.",pr:"HIGH",how:"ZERO EXTRA PREP. JEE Main IS the eligibility. No fee. Apply alongside JEE prep.",blr:false},
+{id:70,n:"IAF Group X Technical Airmen",s:"IAF Group X",t:"defence",w:"English+Physics+Maths 60min CBT+Physical Fitness Test+Medical",ed:"Multiple cycles ~Feb+Jul 2027",ro:"~Nov 2026",rd:"~Dec 2026",rdt:"2026-12-31",url:"https://agnipathvayu.cdac.in",fee:"Free",out:"Indian Air Force Airman Technical Branch Aircraft/electronics technical work.",pr:"OPTIONAL",how:"Currently Group X = male only. Verify 2027 notification for all-gender eligibility update.",blr:false},
+{id:71,n:"DRDO ISRO Scientist Entry",s:"DRDO/ISRO",t:"defence",w:"DRDO CEPTAM exam or GATE score+interview ISRO: ICRB or direct interview",ed:"After BTech 2031+",ro:"After graduation",rd:"After graduation",rdt:"2031-12-31",url:"https://drdo.gov.in",fee:"Free exam",out:"DRDO missiles/radar/aerospace. ISRO Bangalore ISAC/ISTRAC right here! Govt Scientist.",pr:"FUTURE",how:"ISRO Bangalore is in the city. IISc/IIT to DRDO/ISRO best path. Prepare GATE in 3rd year BTech.",blr:true},
+{id:72,n:"CMI Entrance 2027 Chennai Math Institute",s:"CMI",t:"defence",w:"Proof-based Maths+objective 3hrs Pen &amp; paper",ed:"~May 2 2027",ro:"~Mar 2027",rd:"~Apr 4 2027",rdt:"2027-04-04",url:"https://www.cmi.ac.in/admissions",fee:"~&amp;#x20B9;500",out:"CMI Chennai BSc Maths+CS BSc Maths+Physics ~50 seats Global PhD pathway.",pr:"OPTIONAL",how:"Only for students who genuinely love abstract mathematics and proof writing.",blr:false},
+{id:73,n:"ISI Admission 2027 Indian Statistical Institute",s:"ISI",t:"defence",w:"Mathematics objective+subjective 2-3hrs",ed:"~May 10-11 2027",ro:"~Mar 2027",rd:"~Apr 2027",rdt:"2027-04-13",url:"https://www.isical.ac.in/admissions",fee:"~&amp;#x20B9;500",out:"ISI Bangalore campus ISI Kolkata ISI Delhi BStat Hons BMath Hons.",pr:"OPTIONAL",how:"ISI Bangalore campus is right here. BStat = India's most underrated degree for data science.",blr:true},
+{id:74,n:"Krea KUCAT 2027 Krea University",s:"Krea KUCAT 2",t:"defence",w:"KUCAT Aptitude+Interest+SOP+PI Rolling",ed:"Rolling Jan-May 2027",ro:"Nov 2026",rd:"May 2027",rdt:"2027-05-31",url:"https://www.krea.edu.in/admissions",fee:"Free",out:"Krea University Sri City AP. Liberal arts BSc CS Data Science Economics.",pr:"OPTIONAL",how:"Liberal arts university. BSc CS available. Good for students wanting broad interdisciplinary education.",blr:false},
+{id:75,n:"NCHMCT JEE 2027 Hotel Management",s:"NCHMCT JEE",t:"hospitality",w:"Numerical Ability+Reasoning+GK+English+Aptitude for Service 200Qs 3hrs CBT NTA",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://nchmct.org",fee:"~&amp;#x20B9;1,000",out:"21 Central Institutes of Hotel Management IHMs: Delhi Mumbai Bangalore Chennai + more. BSc Hospitality.",pr:"MEDIUM",how:"Open to ALL streams. IHM Bangalore is in Bangalore! Hospitality: hotels airlines events.",blr:true},
+{id:76,n:"IHM Tourism Management 2027 via NCHMCT JEE",s:"Tourism Management",t:"hospitality",w:"Same NCHMCT JEE exam Tourism Management specialisation at select IHMs",ed:"~Apr-May 2027",ro:"Jan 2027",rd:"Mar 2027",rdt:"2027-03-31",url:"https://nchmct.org",fee:"~&amp;#x20B9;1,000",out:"BSc Tourism &amp; Travel Management at IHMs. Travel agencies tour operators destination management airlines.",pr:"MEDIUM",how:"Same NCHMCT JEE exam opens both Hotel Management and Tourism. One exam two career paths.",blr:false},
+{id:77,n:"IIHM eCHAT 2027 Hotel Management",s:"IIHM eCHAT",t:"hospitality",w:"Online aptitude test+Personal Interview",ed:"Rolling Jan-May 2027",ro:"Nov 2026",rd:"Apr 2027",rdt:"2027-04-30",url:"https://iihm.ac.in",fee:"~&amp;#x20B9;500",out:"International Institute of Hotel Management 7 campuses across India including Bangalore.",pr:"OPTIONAL",how:"Private HM institute. Good hospitality program. IIHM Bangalore available.",blr:true},
+{id:78,n:"BPEd 2027 Sports Physical Education",s:"BPEd",t:"sports",w:"Physical Fitness Test+Written test+Interview varies by university",ed:"~Apr-May 2027",ro:"Jan-Feb 2027",rd:"Mar-Apr 2027",rdt:"2027-04-30",url:"https://lncpe.ac.in",fee:"~&amp;#x20B9;500-1000",out:"LNCPE Thiruvananthapuram India's top sports institute Various university BPEd programs. Sports coaching PE teacher.",pr:"OPTIONAL",how:"For students with genuine sports background. Physical fitness is primary selection criterion.",blr:false},
+{id:79,n:"SAI Sports Science Sports Authority of India",s:"SAI Sports Science",t:"sports",w:"Physical fitness tests+written aptitude+sports performance evaluation",ed:"~2027 schedule announced annually",ro:"~Jan 2027",rd:"~Mar 2027",rdt:"2027-03-31",url:"https://sportsauthorityofindia.nic.in",fee:"~&amp;#x20B9;500",out:"SAI training centres across India. Sports coaching sports science high-performance athletic training.",pr:"OPTIONAL",how:"For students with state/national level sports achievements. Physical performance is primary criterion.",blr:false},
+{id:80,n:"SAT 2026-27 US Singapore International",s:"SAT",t:"intl",w:"Reading+Writing+Maths Digital CBT 2hrs14min 400-1600",ed:"Multiple: Aug Sep Oct Nov Dec 2026 Mar May Jun 2027",ro:"~6 weeks before each date",rd:"Oct 3 2026 recommended",rdt:"2026-10-03",url:"https://satsuite.collegeboard.org/sat/registration",fee:"~&amp;#x20B9;7,700/attempt",out:"US MIT/Stanford/Georgia Tech/CMU + NUS/NTU Singapore + Canada + UK.",pr:"HIGH",how:"Take by Oct 2026 for Fall 2027 US/Singapore. JEE Maths prep = SAT Maths prep.",blr:false},
+{id:81,n:"NUS Singapore UG Application 2027",s:"NUS Singapore",t:"intl",w:"Application: 12th marks+SOP+references SAT optional 1400+ helps",ed:"Dec 2026-Feb 2027",ro:"Dec 2026",rd:"~Feb 2027",rdt:"2027-02-28",url:"https://nus.edu.sg/oam/admissions",fee:"SGD 10 ~&amp;#x20B9;650",out:"NUS Singapore QS#8 globally #1 Asia CS EEE Mechanical Business.",pr:"HIGH",how:"CS acceptance ~3-5% international. 2-yr post-study work pass. Fee ~&amp;#x20B9;11L/yr.",blr:false},
+{id:82,n:"NTU Singapore UG Application 2027",s:"NTU Singapore",t:"intl",w:"Application: 12th marks+SOP SAT helpful No entrance exam",ed:"Dec 2026-Feb 2027",ro:"Dec 2026",rd:"~Feb 2027",rdt:"2027-02-28",url:"https://www.ntu.edu.sg/admissions/undergraduate",fee:"Minimal",out:"NTU Singapore QS Top 15. EEE CS Mechanical Aerospace.",pr:"HIGH",how:"Strong for EEE + Aerospace. Same Singapore work visa as NUS. Apply to both.",blr:false},
+{id:83,n:"UK UCAS 2027 All UK Universities",s:"UK UCAS",t:"intl",w:"Personal Statement+Predicted Grades+Reference ALL UK universities one portal",ed:"Sep 2026-Jan 15 2027",ro:"Sep 2026",rd:"Jan 15 2027",rdt:"2027-01-15",url:"https://www.ucas.com",fee:"£29.50 ~&amp;#x20B9;3,200",out:"Imperial QS#2 UCL QS#9 Edinburgh Manchester Warwick Bristol.",pr:"HIGH",how:"Start Personal Statement Jul 2026. 3-yr UK degrees = 1 yr cheaper. 2-yr Graduate Visa.",blr:false},
+{id:84,n:"US Common App Fall 2027",s:"US Common App",t:"intl",w:"Essays+SAT/ACT+GPA+Recommendations Up to 20 universities",ed:"Nov 1 ED / Jan 15 RD 2027",ro:"Aug 1 2026",rd:"Nov 1 / Jan 15",rdt:"2026-11-01",url:"https://www.commonapp.org",fee:"~$90/univ ~&amp;#x20B9;7,700",out:"MIT Stanford Georgia Tech CMU Purdue Cornell Michigan 900+ universities.",pr:"HIGH",how:"Start essays Jun-Jul 2026. Apply 10-15 unis 3 reach + 5 match + 4 safety.",blr:false},
+{id:85,n:"Canada UG Toronto Waterloo UBC",s:"Canada UG",t:"intl",w:"OUAC portal+12th marks+SOP SAT helpful but often not required",ed:"Nov 2026-Feb 2027",ro:"Nov 2026",rd:"Feb 2027",rdt:"2027-02-28",url:"https://future.utoronto.ca/apply",fee:"CAD 55K/yr ~&amp;#x20B9;32L/yr",out:"U Toronto QS#25 UWaterloo world-class CS co-op UBC McGill.",pr:"OPTIONAL",how:"UWaterloo co-op = 6 real work terms. 3-yr PGWP work permit after graduation.",blr:false},
+{id:86,n:"Liverpool Bengaluru UK Degree in Bangalore",s:"Liverpool Bengaluru",t:"intl",w:"Application only SOP+12th marks No entrance exam",ed:"Sep 2026 onwards",ro:"Sep 2026",rd:"Jun 2027",rdt:"2027-06-30",url:"https://www.bengaluru.liverpool.ac.uk/admissions",fee:"~&amp;#x20B9;8-10L/yr",out:"Univ of Liverpool Bengaluru CS Software Dev Business Full UK degree.",pr:"MEDIUM",how:"UK degree no exam IN BANGALORE. New campus - no placement track record yet.",blr:true},
+{id:87,n:"ICAR AIEEA-UG 2027 Agriculture Research",s:"ICAR Agriculture Abroad",t:"intl",w:"PCB or PCM CBT via NTA for agricultural science research path",ed:"~Jun 2027",ro:"Mar 2027",rd:"Apr 2027",rdt:"2027-04-30",url:"https://icar.nta.nic.in",fee:"~&amp;#x20B9;1,000",out:"BSc Agriculture at central agricultural universities leading to global research opportunities in food science.",pr:"MEDIUM",how:"PCB or PCM both eligible. Good for students targeting global food security and agriculture research.",blr:false},
+{id:88,n:"Japan MEXT Scholarship 2027",s:"Japan MEXT Scholarship",t:"intl",w:"Application+Screening by Indian Embassy+Japanese university selection",ed:"Apply Apr-Jun 2026 for 2027 batch",ro:"Apr 2026",rd:"Jun 2026",rdt:"2026-06-30",url:"https://www.in.emb-japan.go.jp/itpr_en/mext.html",fee:"FULLY FUNDED",out:"Japanese govt full scholarship: tuition+living allowance. Engineering Science Humanities at Japanese national universities.",pr:"OPTIONAL",how:"Fully funded by Japanese govt. No tuition. Monthly stipend. Requires Japanese language learning. Long-term career in Japan.",blr:false},
+{id:89,n:"Netherlands Universities 2027 English BTech BSc",s:"Netherlands Universities",t:"intl",w:"Application: 12th marks+SOP+English proficiency IELTS/TOEFL No entrance exam",ed:"Nov 2026-Feb 2027 varies",ro:"Sep 2026",rd:"Jan-Feb 2027",rdt:"2027-02-28",url:"https://www.studyfinder.nl",fee:"EUR 2,500-12,000/yr ~&amp;#x20B9;2-10L/yr",out:"University of Amsterdam TU Delft Eindhoven - English medium BSc programs in Engineering CS Data Science Design.",pr:"OPTIONAL",how:"Many English-medium programs. Lower cost than US/UK. Good European career pathway.",blr:false}
+];
+
+
+
+const CAL=[
+{m:"Jul\u2013Aug 2026",o:true,ev:[
+{t:"critical",i:"\uD83D\uDD34",n:"Decide your tracks",k:"Action",d:"By Aug 31",note:"Engineering / Research / Design / Defence / Abroad? This decision shapes everything else."},
+{t:"intl",i:"\uD83C\uDF0D",n:"US Common App opens",k:"International",d:"Aug 1, 2026",note:"Start essays now if targeting US Early Decision (Nov 1 deadline)."},
+{t:"high",i:"\uD83D\uDCDD",n:"SAT registration for Aug/Sep dates",k:"Register",d:"~Aug 2026",note:"Take by Oct 2026 for Fall 2027 US/Singapore admissions."},
+{t:"defence",i:"\uD83C\uDFC3",n:"Start physical training \u2014 Defence",k:"Defence",d:"NOW",note:"2km run, 20 push-ups, 30 sit-ups daily. Non-negotiable for NDA / Army TES / Navy BTech."}]},
+{m:"Sep\u2013Oct 2026",o:true,ev:[
+{t:"critical",i:"\uD83D\uDD34",n:"JEE Main S1 Registration OPENS (~Oct)",k:"Register",d:"~Oct 2026",note:"Register and PAY immediately. The most critical registration of the year. No extensions ever given."},
+{t:"critical",i:"\uD83D\uDD34",n:"UCEED Registration",k:"Register",d:"Oct\u2013Nov 2026",note:"\u26a0\ufe0f MOST MISSED DEADLINE. IIT Design schools. Exam is Jan 18, 2027. Register even if design is 20% consideration."},
+{t:"high",i:"\uD83D\uDCDD",n:"NID DAT Registration opens",k:"Register",d:"Sep\u2013Oct 2026",note:"NID Bengaluru is in Bangalore. Registration closes Dec 6, 2026."},
+{t:"exam",i:"\uD83D\uDCDA",n:"SAT",k:"Exam",d:"Sep 12 & Oct 3",note:"Take by Oct 3 for Fall 2027 US/Singapore applications."},
+{t:"intl",i:"\uD83C\uDF0D",n:"US Common App \u2014 Early Decision",k:"International",d:"Nov 1, 2026",note:"Start essays now if targeting Early Decision."}]},
+{m:"Nov\u2013Dec 2026",o:false,ev:[
+{t:"critical",i:"\uD83D\uDD34",n:"JEE Main S1 Registration CLOSES",k:"Deadline",d:"~Nov 2026",note:"Last chance. No extensions. If missed, cannot appear for Session 1."},
+{t:"critical",i:"\uD83D\uDD34",n:"NID DAT Registration CLOSES",k:"Deadline",d:"Dec 6, 2026",note:"Hard deadline. NID Bengaluru is in Bangalore. Do not miss."},
+{t:"high",i:"\uD83D\uDCDD",n:"NIFT registration opens",k:"Register",d:"Nov\u2013Dec 2026",note:"NIFT Bangalore is a top-3 campus nationally, right in Bangalore."},
+{t:"defence",i:"\uD83D\uDEE1\uFE0F",n:"Navy BTech Cadet Entry opens",k:"Register",d:"~Nov 2026",note:"\u2b50 Zero extra exam \u2014 uses JEE Main rank. Free application."},
+{t:"exam",i:"\uD83D\uDCDA",n:"SAT",k:"Exam",d:"Nov 7 & Dec 5",note:"Last recommended dates for Fall 2027 applications."},
+{t:"intl",i:"\uD83C\uDF0D",n:"UK UCAS Regular Deadline",k:"International",d:"Jan 15, 2027",note:"Oxford/Cambridge was Oct 15. Regular deadline Jan 15, 2027."}]},
+{m:"Jan 2027",o:false,ev:[
+{t:"critical",i:"\uD83D\uDD34",n:"UCEED EXAM",k:"Exam",d:"~Jan 18, 2027",note:"IIT Design schools. Happens BEFORE JEE Main. Prepare both."},
+{t:"critical",i:"\uD83D\uDD34",n:"JEE MAIN SESSION 1 EXAM",k:"Exam",d:"~Jan 21\u201330, 2027",note:"Most important exam of the year. No distractions this week."},
+{t:"critical",i:"\uD83D\uDCDD",n:"KCET Registration OPENS",k:"Register",d:"~Jan 2027",note:"Register same week as JEE S1. Karnataka domicile required."},
+{t:"critical",i:"\uD83D\uDCDD",n:"COMEDK Registration OPENS",k:"Register",d:"Jan\u2013Feb 2027",note:"Open to all India. Best route for Karnataka private colleges."},
+{t:"critical",i:"\uD83D\uDCDD",n:"BITSAT Registration OPENS",k:"Register",d:"Jan 2027",note:"India\u2019s best private university. Register immediately."},
+{t:"high",i:"\uD83D\uDCDA",n:"NID DAT Prelims",k:"Exam",d:"~Jan 2027",note:"Creative test \u2014 observation, visualization, design sense."},
+{t:"intl",i:"\uD83C\uDF0D",n:"NUS/NTU Singapore Applications",k:"International",d:"Dec 2026 \u2013 Feb 2027",note:"QS #8 globally. CBSE students: SAT optional but 1400+ helps."},
+{t:"defence",i:"\uD83D\uDEE1\uFE0F",n:"NDA I Registration opens",k:"Register",d:"~Jan 2027",note:"PCM mandatory for Navy + Air Force wing."}]},
+{m:"Feb\u2013Mar 2027",o:false,ev:[
+{t:"critical",i:"\uD83D\uDD34",n:"KCET Registration CLOSES",k:"Deadline",d:"~Feb 27, 2027",note:"Most important state exam for Bangalore students. Absolutely do not miss."},
+{t:"critical",i:"\uD83D\uDD34",n:"IAT/IISER Registration OPENS",k:"Register",d:"~Mar 5, 2027",note:"IISc Bangalore (NIRF #1!) + 7 IISERs. Register both IAT AND IISc portal separately."},
+{t:"high",i:"\uD83D\uDCDD",n:"JEE Main S2 Registration",k:"Register",d:"Feb\u2013Mar 2027",note:"Register even before S1 result. Separate registration required."},
+{t:"high",i:"\uD83D\uDCDD",n:"BITSAT Registration CLOSES",k:"Deadline",d:"~Mar 2027",note:"India\u2019s best private university. Don\u2019t miss this."},
+{t:"exam",i:"\uD83D\uDCDA",n:"NIFT Entrance Exam",k:"Exam",d:"~Feb 13\u201314, 2027",note:"NIFT Bangalore is top-3 campus. CAT (drawing) + GAT (aptitude)."},
+{t:"exam",i:"\uD83D\uDCCA",n:"JEE Main S1 Result",k:"Result",d:"~Feb 2027",note:"Analyse immediately. Register KCET/COMEDK same week."}]},
+{m:"Apr\u2013May 2027",o:false,ev:[
+{t:"critical",i:"\uD83D\uDD34",n:"JEE MAIN SESSION 2 EXAM",k:"Exam",d:"~Apr 2\u20139, 2027",note:"Attempt regardless of S1 performance. Best score counts."},
+{t:"critical",i:"\uD83D\uDD34",n:"KCET EXAM",k:"Exam",d:"~Apr 23\u201324, 2027",note:"Most important exam for Bangalore Karnataka students."},
+{t:"critical",i:"\uD83D\uDD34",n:"IAT/IISER Registration CLOSES",k:"Deadline",d:"~Apr 13, 2027",note:"IISc Bangalore + 7 IISERs. Register before this date or miss the year."},
+{t:"critical",i:"\uD83D\uDD34",n:"NDA I EXAM",k:"Exam",d:"~Apr 13, 2027",note:"Maths + General Ability. Physical fitness tested at SSB after."},
+{t:"high",i:"\uD83D\uDCDA",n:"VITEEE · COMEDK · BITSAT",k:"Exams",d:"Apr 19 \u2013 May 26",note:"Three major private university exams in quick succession. Map dates carefully."},
+{t:"high",i:"\uD83D\uDCDA",n:"IPMAT Indore · CMI · ISI",k:"Exams",d:"May 2\u201310, 2027",note:"Management + Research exams cluster. Only attempt those on your track."}]},
+{m:"Jun\u2013Jul 2027",o:false,ev:[
+{t:"critical",i:"\uD83D\uDD34",n:"JEE ADVANCED EXAM",k:"Exam",d:"~Jun 2027",note:"Only top 2.5L JEE Main qualifiers. Register within 2 weeks of S2 result."},
+{t:"critical",i:"\uD83D\uDD34",n:"IAT / IISER EXAM",k:"Exam",d:"~Jun 7, 2027",note:"IISc Bangalore (NIRF #1) + 7 IISERs. Same exam, one sitting."},
+{t:"critical",i:"\uD83D\uDD34",n:"Army TES Application opens",k:"Register",d:"Jul\u2013Aug 2027",note:"\u2b50 Apply same week as JEE Main result. Zero extra exam. FREE."},
+{t:"high",i:"\uD83D\uDCDA",n:"NEST Exam",k:"Exam",d:"~Jun 7, 2027",note:"NISER Bhubaneswar. Same prep as IAT. Attempt both."},
+{t:"intl",i:"\uD83C\uDF0D",n:"Visa applications begin",k:"International",d:"Jun\u2013Jul 2027",note:"Singapore/UK/US visa process after receiving offer letters."}]},
+{m:"Aug 2027",o:false,ev:[
+{t:"critical",i:"\uD83C\uDFC6",n:"FINAL DECISION \u2014 Accept ONE offer",k:"Action",d:"By Aug 31, 2027",note:"Rank options: Career potential \u2192 Education quality \u2192 Location \u2192 Finance \u2192 Gut feeling."},
+{t:"high",i:"\uD83D\uDCCA",n:"JoSAA + KCET + COMEDK Counselling",k:"Counselling",d:"Jun\u2013Jul 2027",note:"All counselling rounds happen here. Keep documents ready."},
+{t:"defence",i:"\uD83D\uDEE1\uFE0F",n:"SSB Results \u2014 Army TES / Navy BTech",k:"Defence",d:"Aug\u2013Sep 2027",note:"Medical examination for those who cleared SSB interview."}]}
+];
+
+const QS=[
+{q:"When you read the news, which story makes you lean forward?",opts:[
+{i:"\uD83D\uDCBB",l:"Tech breakthrough",s:"AI, chips, space launch, new software",t:"tech"},
+{i:"\uD83C\uDFE5",l:"Health discovery",s:"Cancer cure, pandemic, mental health",t:"health"},
+{i:"\uD83C\uDF31",l:"Environment / Climate",s:"Climate, pollution, clean energy, water",t:"climate"},
+{i:"\uD83D\uDCDA",l:"Education / Social impact",s:"School access, inequality, community",t:"impact"},
+{i:"\uD83C\uDFA8",l:"Design / Culture",s:"New product, architecture, art, experience",t:"design"},
+{i:"\uD83D\uDCB0",l:"Finance / Business",s:"Startup, market, economy, investment",t:"finance"},
+{i:"\uD83D\uDEE1\uFE0F",l:"Defence / Security",s:"National security, military tech, cyber",t:"defence"}]},
+{q:"Which kind of homework do you NOT notice the time passing?",opts:[
+{i:"\uD83D\uDCD0",l:"Mathematics",s:"Solving problems, proofs, patterns",t:"math"},
+{i:"\uD83D\uDCBB",l:"Writing code",s:"Building things, debugging, logic",t:"code"},
+{i:"\uD83D\uDD2C",l:"Reading science",s:"How the universe works, experiments",t:"science"},
+{i:"\u270F\uFE0F",l:"Drawing / designing",s:"Sketching, making things look right",t:"design"},
+{i:"\uD83D\uDCDA",l:"Writing / reading",s:"Essays, stories, arguments, debate",t:"arts"},
+{i:"\uD83D\uDCCA",l:"Organising / planning",s:"Spreadsheets, presentations, systems",t:"manage"}]},
+{q:"What would you rather be doing at age 35?",opts:[
+{i:"\uD83D\uDE80",l:"Launching products at a tech startup",s:"Coding, building, shipping fast",t:"tech"},
+{i:"\uD83D\uDD2C",l:"Presenting research that changes policy",s:"Lab, papers, conferences",t:"research"},
+{i:"\uD83C\uDFA8",l:"Designing a product millions use daily",s:"UX, industrial design, brand",t:"design"},
+{i:"\uD83C\uDFEB",l:"Teaching in a room that changes lives",s:"Education, mentoring, social impact",t:"impact"},
+{i:"\uD83D\uDEE1\uFE0F",l:"Leading a unit protecting the country",s:"Officer, mission, service",t:"defence"},
+{i:"\uD83C\uDFE2",l:"Building a company from scratch",s:"Entrepreneur, founder, scaling",t:"biz"}]},
+{q:"Which degree label feels most right for you?",opts:[
+{i:"\u2699\uFE0F",l:"BTech Engineering",s:"Building systems, products, infrastructure",t:"engineering"},
+{i:"\uD83E\uDDEA",l:"BSc Research",s:"Pure science, deep understanding, discovery",t:"research"},
+{i:"\uD83C\uDFAD",l:"BDes Design",s:"Visual, spatial, human-centered creation",t:"design"},
+{i:"\uD83D\uDCC8",l:"BBA / Integrated MBA",s:"Business, strategy, people, money",t:"management"},
+{i:"\uD83D\uDCDA",l:"BA Liberal Arts",s:"Broad thinking, multiple disciplines",t:"liberal"},
+{i:"\uD83D\uDEE1\uFE0F",l:"Defence training + BTech",s:"Service, leadership, engineering",t:"defence"}]},
+{q:"Which problem makes your heart beat faster?",opts:[
+{i:"\uD83E\uDD16",l:"Making AI safe and beneficial",s:"AI alignment, ethics, research",c:"AI / ML Research",ex:["IAT (IISER)","JEE Advanced","UGEE IIIT Hyderabad"]},
+{i:"\u26A1",l:"Clean energy for everyone",s:"Solar, batteries, green hydrogen",c:"Renewable Energy Engineer",ex:["JEE Main S1","KCET","BITSAT"]},
+{i:"\uD83D\uDD12",l:"Protecting people from cybercrime",s:"Ethical hacking, security, privacy",c:"Cybersecurity Engineer",ex:["JEE Main S1","KCET","COMEDK"]},
+{i:"\uD83C\uDFE5",l:"Making healthcare affordable",s:"Biotech, genomics, health tech",c:"Biotech / Health Tech",ex:["IAT (IISER)","IISc BS Research","JEE Main S1"]},
+{i:"\uD83C\uDFA8",l:"Making technology beautiful to use",s:"UX, product design, interfaces",c:"UX / Product Designer",ex:["UCEED 2027","NID DAT","Srishti Manipal"]},
+{i:"\uD83D\uDEE1\uFE0F",l:"Defending the nation with technology",s:"DRDO, ISRO, Naval tech, Army",c:"Defence Scientist / Officer",ex:["NDA I","Army TES","Navy BTech Cadet"]}]}
+];
+
+const CMAP={
+tc_eng:{career:"Software / AI Engineer",tier:"\uD83D\uDD35 Tier 1",sal:"\u20B910\u201318 LPA start \u2192 \u20B950L\u20133 Cr peak",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",ex:["JEE Main S1","JEE Main S2","JEE Advanced","KCET","COMEDK","BITSAT","UGEE IIIT Hyderabad"]},
+tc_res:{career:"AI Researcher / Scientist",tier:"\uD83D\uDD35 Tier 1",sal:"\u20B98\u201325 LPA start \u2192 \u20B950L\u20131 Cr peak",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",ex:["IAT (IISER)","IISc BS Research","JEE Advanced","UGEE IIIT Hyderabad"]},
+health:{career:"Biotech / Health Tech Researcher",tier:"\uD83D\uDFE2 Tier 2",sal:"\u20B95\u201312 LPA start \u2192 \u20B930\u201360 LPA peak",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",ex:["IAT (IISER)","IISc BS Research","JEE Main S1","NEST","BITSAT"]},
+climate:{career:"Climate Tech / Renewable Energy Engineer",tier:"\uD83D\uDFE2 Tier 2",sal:"\u20B96\u201312 LPA start \u2192 \u20B940\u201360 LPA peak",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",ex:["JEE Main S1","JEE Advanced","KCET","BITSAT","IAT (IISER)"]},
+design:{career:"UX / Product Designer",tier:"\uD83D\uDFE2 Tier 2",sal:"\u20B96\u201312 LPA start \u2192 \u20B935\u201360 LPA peak",imp:"\u2B50\u2B50\u2B50\u2B50",ex:["UCEED 2027","NID DAT","NIFT Entrance","Srishti Manipal"]},
+defence:{career:"Defence Officer / DRDO / ISRO Scientist",tier:"\uD83D\uDEE1\uFE0F Service",sal:"\u20B91.2\u20131.5L/month equiv. + pension for life",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",ex:["NDA I","NDA II","Army TES","Navy BTech Cadet"]},
+finance:{career:"FinTech / Quant Finance / Management",tier:"\uD83D\uDFE1 Tier 3",sal:"\u20B915\u201325 LPA start \u2192 \u20B91\u20135 Cr peak",imp:"\u2B50\u2B50\u2B50",ex:["IPMAT Indore","IPMAT Rohtak","JEE Main S1","ISI Admission"]},
+impact:{career:"EdTech / Education / Social Innovation",tier:"\uD83D\uDCA0 Impact",sal:"\u20B96\u201315 LPA start \u2192 \u20B925\u201350 LPA peak",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",ex:["Ashoka AAT","APU Entrance Bangalore","KUCAT Krea","FLAME FEAT"]},
+def:{career:"Engineering + Research (Broad Path)",tier:"\uD83D\uDD35 Tier 1",sal:"\u20B98\u201320 LPA start \u2192 \u20B940\u201380 LPA peak",imp:"\u2B50\u2B50\u2B50\u2B50",ex:["JEE Main S1","JEE Main S2","KCET","COMEDK","BITSAT","IAT (IISER)","IISc BS Research"]}
+};
+
+const WD=[
+{n:"AI / ML Engineer",tier:"\uD83D\uDD35 TIER 1 \u2014 HIGHEST ROI",tag:"India: 420K practitioners vs 1.2M needed by 2030. Single largest talent shortage.",c:"#1565C0",ind:"420,000 AI practitioners today vs 1.2M needed by 2030. National AI Mission active. Every sector transforming.",rs:"\u20B910\u201318 LPA",rp:"\u20B950L\u20133 Cr",rg:"$150\u2013500K",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",it:"Healthcare AI saves lives. Agriculture AI feeds farmers. Education AI reaches 260M children without good teachers.",path:"IISc Bangalore (NIRF #1, via IAT, near-zero fees). IIIT Hyderabad (via UGEE). IITs via JEE Advanced.",sp:85},
+{n:"Semiconductor / VLSI Engineer",tier:"\uD83D\uDD35 TIER 1 \u2014 NATIONAL MISSION",tag:"India Semiconductor Mission \u20B976,000 Cr. Tata building chip fab. Talent pipeline nearly EMPTY.",c:"#0D47A1",ind:"India Semiconductor Mission \u20B976,000 Cr. Tata, Micron in India. 35% of employers say chips transform ops by 2030.",rs:"\u20B98\u201315 LPA",rp:"\u20B940\u201380 LPA",rg:"$200K+",imp:"\u2B50\u2B50\u2B50\u2B50",it:"Building India\u2019s technology sovereignty. Reducing dependence on China. Powering medical devices, EVs, satellites.",path:"JEE Advanced \u2192 IIT Madras/Bombay EEE. JEE Main \u2192 NIT Surathkal/Trichy ECE. BITSAT \u2192 BITS Pilani EEE.",sp:80},
+{n:"Data Scientist",tier:"\uD83D\uDD35 TIER 1 \u2014 EVERY INDUSTRY",tag:"GCCs in Bangalore alone adding 500K positions by 2026. AI-complementary, not replaced by AI.",c:"#1A7F74",ind:"GCCs in Bangalore adding 500K positions by 2026. Every sector needs data intelligence.",rs:"\u20B98\u201315 LPA",rp:"\u20B950\u201380 LPA",rg:"$200K\u20131M (Quant)",imp:"\u2B50\u2B50\u2B50\u2B50",it:"Public health analytics saves lives. Climate data drives policy. Agricultural predictions feed farmers.",path:"ISI Bangalore BStat (most underrated degree in India). IISc \u2192 Mathematics. BTech CS + Statistics.",sp:80},
+{n:"Cybersecurity Engineer",tier:"\uD83D\uDD35 TIER 1 \u2014 NATIONAL SECURITY",tag:"1.3 million cybersecurity incidents in India in 2023. Skill matters more than pedigree.",c:"#7B1FA2",ind:"1.3M cybersecurity incidents in 2023. Market reaches $13.6B by 2025. Least competition of any tech field.",rs:"\u20B95\u201310 LPA",rp:"\u20B940\u201370 LPA",rg:"$150\u2013250K",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",it:"Protecting hospitals, banks, national infrastructure. Protecting citizens\u2019 savings from cybercriminals.",path:"BTech CS with cybersecurity courses. Amrita Bengaluru has dedicated Cybersecurity BTech \u2014 right in Bangalore.",sp:75},
+{n:"Climate Tech / Renewable Energy",tier:"\uD83D\uDFE2 TIER 2 \u2014 INDIA\u2019S MISSION",tag:"India: 500 GW renewable by 2030. Net-zero by 2070. 30-year tailwind as climate worsens.",c:"#2E7D32",ind:"India target 500 GW renewable by 2030. National Green Hydrogen Mission. Net-zero by 2070.",rs:"\u20B96\u201312 LPA",rp:"\u20B940\u201360 LPA",rg:"$100\u2013180K",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",it:"Clean air for 1.4 billion people. Power for rural India. Reducing climate debt to the next generation.",path:"EEE or Chemical Engineering + energy specialisation. JEE Main \u2192 NIT/IIT EEE. IAT \u2192 IISc/IISER energy research.",sp:70},
+{n:"UX / Product Design",tier:"\uD83D\uDFE2 TIER 2 \u2014 AI-RESISTANT",tag:"As AI automates coding, humans who design WHAT technology does become MORE valuable.",c:"#DD6B20",ind:"100+ unicorn startups + GCCs all need designers who understand Indian cultural context.",rs:"\u20B96\u201312 LPA",rp:"\u20B935\u201360 LPA",rg:"$120\u2013200K",imp:"\u2B50\u2B50\u2B50\u2B50",it:"Accessible tech for disabled/elderly/rural. Government portals that actually work. Healthcare UX saves lives.",path:"UCEED (Jan 18, 2027 \u2014 REGISTER OCT\u2013NOV 2026!). NID DAT (Dec 6, 2026 deadline). NIFT + Srishti Manipal Bangalore.",sp:68},
+{n:"Research / Pure Science (IISc \u00b7 IISERs \u00b7 ISI)",tier:"\u2B50 NIRF #1 IN BANGALORE",tag:"IISc: NIRF #1, IN BANGALORE, fees ~\u20B915K/yr, scholarship \u20B980K/yr. Most families never consider this.",c:"#553C9A",ind:"IISc NIRF #1 in India. IN BANGALORE. Fees ~\u20B915,000/year. INSPIRE scholarship \u20B980,000/year.",rs:"\u20B98\u201325 LPA (post PhD)",rp:"\u20B950\u2013100 LPA",rg:"$200\u2013400K (Quantum/AI)",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",it:"Discovering the science that future engineers will apply. ISRO/DRDO/global research institutions.",path:"IAT 2027 (~Jun 7). Register Mar 5\u2013Apr 13. Also register separately at IISc portal. Add basic Biology from Jul 2026.",sp:65},
+{n:"Defence Officer (NDA \u00b7 Army TES \u00b7 Navy BTech)",tier:"\uD83D\uDEE1\uFE0F SERVICE + SECURITY",tag:"\u20B91.2\u20131.5L/month total compensation. Pension for life. No layoffs. Deepest national service.",c:"#0D47A1",ind:"Army TES and Navy BTech use JEE Main rank as sole shortlisting \u2014 zero extra exam, zero fee.",rs:"\u20B970K\u201390K/month + free housing",rp:"\u20B91.5L\u20132L+/month (Colonel level)",rg:"Pension at 45 for life",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",it:"Defending 1.4 billion people. Leading by example. Serving the nation that shaped you.",path:"Start physical training NOW. NDA I: Jan 2027. Army TES + Navy BTech: apply same week as JEE Main result.",sp:72},
+{n:"EdTech / Social Impact (Azim Premji \u00b7 Ashoka)",tier:"\uD83D\uDCA0 MAXIMUM IMPACT",tag:"260M children not learning. Azim Premji Univ: BSc+BEd, \u20B93L/yr, IN BANGALORE. One-of-a-kind.",c:"#97266D",ind:"260M children in school but millions not learning. EdTech market $10B+. Azim Premji Univ in Bangalore fees ~\u20B93L/yr.",rs:"\u20B96\u201315 LPA",rp:"\u20B925\u201350 LPA",rg:"$50\u2013100K (WHO/UN roles)",imp:"\u2B50\u2B50\u2B50\u2B50\u2B50",it:"One teacher \u2192 1,000 students. One EdTech platform \u2192 10 million students. One policy \u2192 260M children.",path:"Azim Premji University (Bangalore, \u20B93L/yr, unique BSc+BEd). Ashoka University (AAT \u2014 free). IIT Bombay (EdTech research).",sp:50}
+];
+
+// STATE
+let aTrack="all", srch="", sts=JSON.parse(localStorage.getItem("ep27_s")||"{}");
+let cAns=[], cStep=0, cDone=false;
+function saveSts(){localStorage.setItem("ep27_s",JSON.stringify(sts))}
+
+function today(){return new Date()}
+function daysUntil(ds){
+  if(!ds||ds==="2031-12-31")return 9999;
+  const diff=Math.ceil((new Date(ds)-today())/(864e5));
+  return diff;
+}
+function uStyle(d,pr){
+  if(pr==="FUTURE")return{p:0,c:"#C5CEDF",l:"\u2014"};
+  if(d<0)return{p:100,c:"#E53E3E",l:"Past"};
+  if(d<14)return{p:95,c:"#E53E3E",l:d+"d"};
+  if(d<30)return{p:80,c:"#DD6B20",l:d+"d"};
+  if(d<60)return{p:60,c:"#D69E2E",l:d+"d"};
+  if(d<120)return{p:40,c:"#3182CE",l:d+"d"};
+  if(d<250)return{p:20,c:"#805AD5",l:d+"d"};
+  return{p:10,c:"#C5CEDF",l:d+"d"};
+}
+function mkRing(d,pr){
+  const u=uStyle(d,pr),R=18,circ=(2*Math.PI*R),off=circ*(1-u.p/100);
+  return`<div class="uring"><svg width="44" height="44" viewBox="0 0 44 44"><circle class="rbg" cx="22" cy="22" r="${R}"/><circle class="rfill" cx="22" cy="22" r="${R}" stroke="${u.c}" stroke-dasharray="${circ.toFixed(2)}" stroke-dashoffset="${off.toFixed(2)}"/></svg><div class="rcenter"><div class="rdays">${pr==="FUTURE"?"\u2014":d<0?"!":u.l}</div><div class="rlbl">${pr==="FUTURE"?"future":d<0?"PAST":"to reg"}</div></div></div>`;
+}
+function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200)}
+function updDate(){const d=new Date(),o={weekday:"short",day:"numeric",month:"short",year:"numeric"};document.getElementById("live-date").textContent=d.toLocaleDateString("en-IN",o)}
+
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".nav-item,.mobit").forEach(n=>n.classList.remove("active"));
+  document.getElementById("page-"+id).classList.add("active");
+  ["nav-","mnav-"].forEach(p=>{const el=document.getElementById(p+id);if(el)el.classList.add("active")});
+  if(id==="tracker")renderTracker();
+  if(id==="why")renderWhy();
+  if(id==="cal")renderCal();
+}
+
+function buildFBar(){
+  const b=document.getElementById("fbar"),counts={};
+  EX.forEach(e=>{counts[e.t]=(counts[e.t]||0)+1});
+  const emojis={eng:"&#x1F535;",medical:"&#x1F3E5;",law:"&#x2696;&#xFE0F;",commerce:"&#x1F4BC;",design:"&#x1F3A8;",media:"&#x1F4FA;",defence:"&#x1F6E1;&#xFE0F;",hospitality:"&#x1F3E8;",sports:"&#x26BD;",intl:"&#x1F30D;"};
+  let h=`<div class="srchwrap"><span>&#x1F50D;</span><input type="text" id="si" placeholder="Search exams, courses, colleges..." oninput="doSearch()"></div>`;
+  h+=`<button class="chip active" id="fc-all" onclick="setTr('all')">All (${EX.length})</button>`;
+  Object.keys(TR).forEach(k=>{if(counts[k])h+=`<button class="chip t${k}" id="fc-${k}" onclick="setTr('${k}')">${emojis[k]||''} ${TR[k].l} (${counts[k]})</button>`});
+  h+=`<button class="chip" id="fc-blr" onclick="setTr('blr')" style="border-color:#276749;color:#276749">&#x2B50; Bangalore Only</button>`;
+  b.innerHTML=h;
+}
+function setTr(t){
+  aTrack=t;
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+  const el=document.getElementById("fc-"+t);if(el)el.classList.add("active");
+  renderCards();
+}
+function doSearch(){srch=(document.getElementById("si")||{value:""}).value.toLowerCase();renderCards()}
+
+const PL={CRITICAL:"&#x1F534; Must Do",HIGH:"&#x1F7E0; High",MEDIUM:"&#x1F7E2; Recommended",OPTIONAL:"&#x26AA; Optional",FUTURE:"&#x1F537; After Graduation"};
+function renderCards(){
+  const g=document.getElementById("cgrid"),e=document.getElementById("empty-st");
+  const f=EX.filter(ex=>{
+    if(aTrack==="blr"&&!ex.blr)return false;
+    if(aTrack!=="all"&&aTrack!=="blr"&&ex.t!==aTrack)return false;
+    if(srch&&!ex.n.toLowerCase().includes(srch)&&!ex.s.toLowerCase().includes(srch)&&!ex.out.toLowerCase().includes(srch))return false;
+    return true;
+  });
+  if(!f.length){g.innerHTML="";e.style.display="block";return}
+  e.style.display="none";
+  g.innerHTML=f.map(ex=>{
+    const d=daysUntil(ex.rdt),tc=TR[ex.t],st=sts[ex.id]||"pending";
+    const bt=ex.blr?'<span class="btag">BLR</span>':"";
+    const uc=d<30?"#E53E3E":d<60?"#DD6B20":"inherit";
+    return`<div class="ecard">
+      <div class="ctbar" style="background:${tc.c}"></div>
+      <div class="cbody">
+        <div class="ctop">
+          <div class="cname">${ex.n.replace(/\n/g,"<br>")}${bt}</div>
+          ${mkRing(d,ex.pr)}
+        </div>
+        <div class="cmeta">
+          <div class="mrow"><span class="mic">&#x1F4C5;</span><span class="mlbl">Exam</span><span class="mval">${ex.ed.replace(/\n/g," &#x00B7; ")}</span></div>
+          <div class="mrow"><span class="mic">&#x1F4DD;</span><span class="mlbl">Reg. Opens</span><span class="mval">${ex.ro}</span></div>
+          <div class="mrow"><span class="mic">&#x26A0;&#xFE0F;</span><span class="mlbl">Reg. Closes</span><span class="mval" style="font-weight:700;color:${uc}">${ex.rd}</span></div>
+          <div class="mrow"><span class="mic">&#x1F4D6;</span><span class="mlbl">Tests</span><span class="mval">${ex.w.replace(/\n/g," &#x00B7; ")}</span></div>
+          <div class="mrow"><span class="mic">&#x1F4A1;</span><span class="mlbl">How to prep</span><span class="mval">${ex.how}</span></div>
+        </div>
+        <div class="cout">${ex.out}</div>
+      </div>
+      <div class="cfoot">
+        <span class="pbadge p${ex.pr}">${PL[ex.pr]||"&#x26AA;"}</span>
+        <div class="cacts">
+          <select class="stsel" onchange="setSt(${ex.id},this.value)">
+            <option value="pending" ${st==="pending"?"selected":""}>&#x25A1; Not started</option>
+            <option value="registered" ${st==="registered"?"selected":""}>&#x1F504; Registered</option>
+            <option value="appeared" ${st==="appeared"?"selected":""}>&#x1F4DD; Appeared</option>
+            <option value="done" ${st==="done"?"selected":""}>&#x2705; Done</option>
+            <option value="skip" ${st==="skip"?"selected":""}>&#x274C; Skipping</option>
+          </select>
+          <a href="${ex.url}" target="_blank" rel="noopener" class="lbtn">&#x1F517;</a>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+}
+function setSt(id,v){sts[id]=v;saveSts();updStats();if(v==="registered")showToast("\u2705 Registered!");if(v==="done")showToast("\uD83C\uDF89 Done!")}
+
+function updStats(){
+  const urg=EX.filter(e=>daysUntil(e.rdt)<60&&daysUntil(e.rdt)>0&&e.pr!=="FUTURE").length;
+  const rc=Object.values(sts).filter(s=>["registered","appeared","done"].includes(s)).length;
+  const dc=Object.values(sts).filter(s=>s==="done").length;
+  const bc=EX.filter(e=>e.blr).length;
+  document.getElementById("exams-stats").innerHTML=`
+    <div class="stat-card"><div class="sn">${EX.length}</div><div class="sl">Total Exams</div></div>
+    <div class="stat-card"><div class="sn red">${urg}</div><div class="sl">Closing in 60 Days</div></div>
+    <div class="stat-card"><div class="sn amber">${rc}</div><div class="sl">Registered / Done</div></div>
+    <div class="stat-card"><div class="sn green">${bc}</div><div class="sl">Bangalore Based</div></div>`;
+  document.getElementById("urg-count").textContent=urg;
+}
+
+function renderCal(){
+  document.getElementById("cal-wrap").innerHTML=CAL.map((mo,mi)=>`
+    <div class="calmo ${mo.o?"open":""}" id="cm-${mi}">
+      <div class="calhdr" onclick="togCal(${mi})">
+        <div class="calmn">${mo.m} <span>${mo.ev.length} events</span></div>
+        <div class="caltgl">&#x25BC;</div>
+      </div>
+      <div class="calbody">
+        ${mo.ev.map(ev=>`<div class="cev ev${ev.t}"><div class="evic">${ev.i}</div><div class="evb"><div class="evname">${ev.n}</div><div class="evkind">${ev.k}</div>${ev.note?`<div class="evnote">${ev.note}</div>`:""}</div><div class="evdate">${ev.d}</div></div>`).join("")}
+      </div>
+    </div>`).join("");
+}
+function togCal(i){document.getElementById("cm-"+i).classList.toggle("open")}
+
+function renderCompass(){
+  const c=document.getElementById("compass-wrap");
+  if(cDone){showResult();return}
+  const q=QS[cStep];
+  const prog=QS.map((_,i)=>`<div class="cps ${i<cStep?"done":i===cStep?"active":""}"></div>`).join("");
+  c.innerHTML=`<div class="cprog">${prog}</div>
+    <div class="compcard">
+      <div class="qnum">Question ${cStep+1} of ${QS.length}</div>
+      <div class="qtxt">${q.q}</div>
+      <div class="opts">
+        ${q.opts.map((o,i)=>`<button class="opt ${cAns[cStep]===i?"sel":""}" onclick="selO(${i})"><span class="oic">${o.i}</span><div><div class="olbl">${o.l}</div><div class="osub">${o.s}</div></div></button>`).join("")}
+      </div>
+      <div class="cnav">
+        <button class="btns" onclick="cBack()" ${cStep===0?"disabled":""}>&#x2190; Back</button>
+        <button class="btnp" onclick="cNext()" ${cAns[cStep]===undefined?"disabled":""}>
+          ${cStep===QS.length-1?"See My Results &#x2192;":"Next &#x2192;"}
+        </button>
+      </div>
+    </div>`;
+}
+function selO(i){cAns[cStep]=i;renderCompass()}
+function cNext(){if(cAns[cStep]===undefined)return;if(cStep<QS.length-1){cStep++;renderCompass()}else{cDone=true;showResult()}}
+function cBack(){if(cStep>0){cStep--;renderCompass()}}
+function cReset(){cAns=[];cStep=0;cDone=false;renderCompass()}
+
+function showResult(){
+  const c=document.getElementById("compass-wrap");
+  const ts=cAns.map((ai,qi)=>QS[qi].opts[ai].t||"");
+  const has=t=>ts.includes(t);
+  let key="def";
+  if(has("defence"))key="defence";
+  else if(ts.filter(t=>t==="design").length>=2)key="design";
+  else if(has("impact")||has("arts")||has("liberal"))key="impact";
+  else if(has("finance")||has("manage")||has("management"))key="finance";
+  else if(has("health")||has("science"))key="health";
+  else if(has("climate"))key="climate";
+  else if(has("math")&&(has("research")||has("science")))key="tc_res";
+  else if(has("tech")||has("code")||has("engineering"))key="tc_eng";
+  const r=CMAP[key]||CMAP.def;
+  const lo=QS[4].opts[cAns[4]];
+  c.innerHTML=`
+    <div class="rhero">
+      <div class="rheye">Your Career Match</div>
+      <div class="rhcar">${r.career}</div>
+      <div class="rhsub">${r.tier} &nbsp;&#x00B7;&nbsp; ${r.sal.split("\u2192")[0].trim()} &nbsp;&#x00B7;&nbsp; ${r.imp}</div>
+    </div>
+    ${lo&&lo.c?`<div class="rsec"><div class="rstit">Based on your final answer: "${lo.l}"</div><p style="font-size:.85rem;color:#4A5568;margin-bottom:12px">Specific direction: <strong>${lo.c}</strong></p><div>${(lo.ex||[]).map(ex=>`<button class="epill" onclick="showPage('exams')">${ex}</button>`).join("")}</div></div>`:""}
+    <div class="rsec"><div class="rstit">Priority Exams to Target</div>${r.ex.map(ex=>`<button class="epill" onclick="showPage('exams')">${ex}</button>`).join("")}</div>
+    <div class="rsec"><div class="rstit">Salary Trajectory &amp; Impact</div><p style="font-size:.82rem;color:#4A5568">${r.sal}</p><p style="font-size:.9rem;color:#276749;font-weight:700;margin-top:8px">${r.imp}</p></div>
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btnp" onclick="showPage('exams')">Browse All Exams &#x2192;</button>
+      <button class="btns" onclick="cReset()">Retake Quiz</button>
+    </div>`;
+}
+
+function renderTracker(){
+  const rc=Object.values(sts).filter(s=>s==="registered").length;
+  const dc=Object.values(sts).filter(s=>s==="done").length;
+  const sc=Object.values(sts).filter(s=>s==="skip").length;
+  document.getElementById("tracker-stats").innerHTML=`
+    <div class="stat-card"><div class="sn amber">${rc}</div><div class="sl">Registered</div></div>
+    <div class="stat-card"><div class="sn green">${dc}</div><div class="sl">Completed</div></div>
+    <div class="stat-card"><div class="sn">${sc}</div><div class="sl">Skipping</div></div>
+    <div class="stat-card"><div class="sn">${EX.length-sc}</div><div class="sl">Remaining</div></div>`;
+  document.getElementById("tracker-table").innerHTML=`
+    <div class="trow hdr"><div>Exam</div><div>Reg. Closes</div><div>Exam Date</div><div>Status</div></div>
+    ${EX.map(ex=>{const st=sts[ex.id]||"pending";return`<div class="trow">
+      <div><div class="tname">${ex.s}</div><div style="font-size:.7rem;color:#8892A4;margin-top:2px">${TR[ex.t].l}</div></div>
+      <div class="tdate">${ex.rd}</div>
+      <div class="tdate">${ex.ed.split("\n")[0]}</div>
+      <div><select class="stsel" onchange="setSt(${ex.id},this.value)">
+        <option value="pending" ${st==="pending"?"selected":""}>&#x25A1; Not started</option>
+        <option value="registered" ${st==="registered"?"selected":""}>&#x1F504; Registered</option>
+        <option value="appeared" ${st==="appeared"?"selected":""}>&#x1F4DD; Appeared</option>
+        <option value="done" ${st==="done"?"selected":""}>&#x2705; Done</option>
+        <option value="skip" ${st==="skip"?"selected":""}>&#x274C; Skipping</option>
+      </select></div>
+    </div>`}).join("")}`;
+}
+
+function renderWhy(){
+  document.getElementById("why-grid").innerHTML=WD.map((w,i)=>`
+    <div class="wcard" id="wc-${i}">
+      <div class="wchdr" style="background:${w.c}" onclick="togWhy(${i})">
+        <div class="wctier">${w.tier}</div>
+        <div class="wcname">${w.n.replace(/\n/g," &#x00B7; ")}</div>
+        <div class="wctag">${w.tag}</div>
+      </div>
+      <div class="wcbody">
+        <div class="wr"><div class="wrl">India</div><div class="wrv">${w.ind}</div></div>
+        <div class="wr"><div class="wrl">ROI</div><div class="wrv"><strong>Start:</strong> ${w.rs} &nbsp;&#x00B7;&nbsp; <strong>Peak India:</strong> ${w.rp} &nbsp;&#x00B7;&nbsp; <strong>Global:</strong> ${w.rg}<div class="sbarw"><div class="sbar" style="width:${w.sp}%"></div></div></div></div>
+        <div class="wr"><div class="wrl">Impact</div><div class="wrv"><div class="impst">${w.imp}</div><div style="font-size:.78rem;color:#4A5568;margin-top:3px">${w.it}</div></div></div>
+        <div class="wr"><div class="wrl">Path</div><div class="wrv">${w.path}</div></div>
+      </div>
+    </div>`).join("");
+}
+function togWhy(i){document.getElementById("wc-"+i).classList.toggle("open")}
+
+// INIT
+updDate();setInterval(updDate,60000);
+buildFBar();renderCards();updStats();renderCompass();renderCal();
+</script>
+</body>
+</html>
